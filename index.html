@@ -13,22 +13,29 @@
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; background-color: #f8fafc; }
         .hero-gradient { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
-        /* Tùy chỉnh thanh cuộn ngang cho feedback */
-        .scroll-container { display: flex; overflow-x: auto; gap: 1.5rem; padding-bottom: 2rem; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent; }
-        .scroll-container::-webkit-scrollbar { height: 8px; }
+        
+        /* Tùy chỉnh thanh cuộn ngang cho feedback thumbnail */
+        .scroll-container { display: flex; overflow-x: auto; gap: 1rem; padding-bottom: 1.5rem; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent; }
+        .scroll-container::-webkit-scrollbar { height: 6px; }
         .scroll-container::-webkit-scrollbar-track { background: transparent; }
         .scroll-container::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 20px; }
-        /* Box ảnh feedback giữ đúng tỷ lệ chữ */
-        .feedback-img { height: 500px; width: auto; max-width: 85vw; object-fit: contain; scroll-snap-align: center; border-radius: 1rem; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; background: #ffffff; flex-shrink: 0; }
+        
+        /* Thumbnail ảnh feedback gọn gàng */
+        .feedback-thumb { height: 220px; width: auto; object-fit: cover; border-radius: 0.75rem; border: 1px solid #e2e8f0; cursor: pointer; transition: all 0.3s ease; flex-shrink: 0; scroll-snap-align: start; }
+        .feedback-thumb:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border-color: #f43f5e; opacity: 0.9; }
+        
+        /* Modal Pop-up Image */
+        .modal-active { overflow: hidden; } /* Ngăn cuộn trang khi mở ảnh */
+        
         /* Hover effects */
         .hover-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .hover-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1); border-color: #fda4af; }
+        .hover-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); border-color: #fda4af; }
     </style>
 </head>
-<body class="text-slate-800">
+<body class="text-slate-800 relative">
 
     <!-- NAVIGATION -->
-    <nav class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur border-b border-slate-200 px-6 py-4">
+    <nav class="fixed top-0 w-full z-40 bg-white/95 backdrop-blur border-b border-slate-200 px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="font-black text-2xl italic tracking-tighter text-slate-900">IELTS <span class="text-rose-600">with KANE</span></div>
             <div class="hidden lg:flex gap-8 text-sm font-bold uppercase tracking-widest text-slate-500">
@@ -58,8 +65,7 @@
             
             <div class="md:col-span-5 flex justify-center md:justify-end">
                 <div class="bg-white/5 border border-white/10 p-8 rounded-[3rem] backdrop-blur-md max-w-sm w-full text-center relative">
-                    <!-- Ảnh cá nhân lấy từ link bạn cung cấp -->
-                    <img src="https://i.ibb.co/WN5m6h5W/image.jpg" alt="Lao Gia Khang" class="w-32 h-32 rounded-full mx-auto mb-6 object-cover border-4 border-rose-500 shadow-2xl">
+                    <img src="https://i.ibb.co/WN5m6h5W/image.jpg" alt="Lao Gia Khang" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-rose-500 shadow-2xl">
                     <h3 class="text-2xl font-black mb-1">Lao Gia Khang (Kane)</h3>
                     <p class="text-rose-400 font-bold uppercase tracking-widest text-xs mb-4">Giảng viên trực tiếp</p>
                     <div class="bg-slate-900/50 p-4 rounded-2xl mb-6 border border-white/5">
@@ -70,7 +76,12 @@
                             <span>Writing: 8.0</span>
                         </div>
                     </div>
-                    <a href="https://ibb.co/rD2yWwW" target="_blank" class="text-xs text-slate-400 underline hover:text-white transition">Xem chứng chỉ IELTS</a>
+                    
+                    <!-- Hiển thị chứng chỉ minh bạch -->
+                    <div class="mt-4 border-t border-white/10 pt-4">
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-3">Chứng chỉ xác thực (Click để phóng to)</p>
+                        <img src="https://i.ibb.co/GzQPh5h/Cam-Scanner-03-30-2026-18-24.jpg" alt="Chứng chỉ IELTS" class="w-full max-w-[200px] mx-auto rounded-lg border border-slate-600 cursor-pointer hover:border-rose-400 transition" onclick="openModal(this.src)">
+                    </div>
                 </div>
             </div>
         </div>
@@ -124,7 +135,7 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <!-- Data from Word document -->
+                <!-- 14 buổi đầu -->
                 <div class="bg-white/5 border border-white/10 p-5 rounded-2xl"><span class="text-rose-500 font-black mr-2">L1.</span><span class="text-sm">Speaking marking criteria + IPA</span></div>
                 <div class="bg-white/5 border border-white/10 p-5 rounded-2xl"><span class="text-rose-500 font-black mr-2">L2.</span><span class="text-sm">Types of essays + Task 2 Criteria + "P-E-R" framework</span></div>
                 <div class="bg-white/5 border border-white/10 p-5 rounded-2xl"><span class="text-rose-500 font-black mr-2">L3.</span><span class="text-sm">Viết Intro + Ngôn ngữ tăng, giảm</span></div>
@@ -138,9 +149,13 @@
                 <div class="bg-white/5 border border-white/10 p-5 rounded-2xl"><span class="text-rose-500 font-black mr-2">L11.</span><span class="text-sm">Agree or Disagree (Should) + Speaking part 3</span></div>
                 <div class="bg-white/5 border border-white/10 p-5 rounded-2xl"><span class="text-rose-500 font-black mr-2">L12.</span><span class="text-sm">Task 1 nhiều đối tượng (Change)</span></div>
                 <div class="bg-white/5 border border-white/10 p-5 rounded-2xl"><span class="text-rose-500 font-black mr-2">L13.</span><span class="text-sm">Speaking part 1 + 2 (journey)</span></div>
-                <div class="bg-white/5 border border-white/10 p-5 rounded-2xl"><span class="text-rose-500 font-black mr-2">L14.</span><span class="text-sm">Agree or Disagree (The only/best) + Speaking part 3</span></div>
-                <div class="bg-white/5 border border-rose-500 p-5 rounded-2xl shadow-[0_0_15px_rgba(225,29,72,0.3)]"><span class="text-rose-500 font-black mr-2">L15.</span><span class="text-sm font-bold">Cấu trúc cơ bản + Thực chiến (no change)</span></div>
-                
+                <div class="bg-white/5 border border-white/10 p-5 rounded-2xl"><span class="text-rose-500 font-black mr-2">L14.</span><span class="text-sm">Agree or Disagree (The only/best) + Speaking part 3</span></div>                <!-- Buổi 15 bình thường -->
+                <div class="bg-white/5 border border-white/10 p-5 rounded-2xl">
+                    <span class="text-rose-500 font-black mr-2">L15.</span>
+                    <span class="text-sm">Cấu trúc cơ bản + Thực chiến (no change)</span>
+                </div>
+
+                <!-- Buổi 16-29 -->
                 <div class="bg-white/5 border border-white/10 p-5 rounded-2xl"><span class="text-rose-500 font-black mr-2">L16.</span><span class="text-sm">Speaking part 1 + 2 (park)</span></div>
                 <div class="bg-white/5 border border-white/10 p-5 rounded-2xl"><span class="text-rose-500 font-black mr-2">L17.</span><span class="text-sm">Agree or Disagree (Better) + Speaking part 3</span></div>
                 <div class="bg-white/5 border border-white/10 p-5 rounded-2xl"><span class="text-rose-500 font-black mr-2">L18.</span><span class="text-sm">Overview + Task 1 ít đối tượng (No change)</span></div>
@@ -155,7 +170,12 @@
                 <div class="bg-white/5 border border-white/10 p-5 rounded-2xl"><span class="text-rose-500 font-black mr-2">L27.</span><span class="text-sm">Task 1 (Process)</span></div>
                 <div class="bg-white/5 border border-white/10 p-5 rounded-2xl"><span class="text-rose-500 font-black mr-2">L28.</span><span class="text-sm">Speaking part 1 + 2 (positive change)</span></div>
                 <div class="bg-white/5 border border-white/10 p-5 rounded-2xl"><span class="text-rose-500 font-black mr-2">L29.</span><span class="text-sm">Problems - Causes - Solutions</span></div>
-                <div class="bg-rose-600 text-white p-5 rounded-2xl shadow-xl"><span class="font-black mr-2">L30.</span><span class="text-sm font-bold uppercase">Final Test (W tại lớp + L&R ở nhà + S riêng)</span></div>
+                
+                <!-- Lesson 30 Highlight -->
+                <div class="bg-rose-600 text-white p-5 rounded-2xl shadow-xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-slate-900 text-rose-400 text-[10px] px-2 py-0.5 rounded-bl-lg font-bold">FINAL</div>
+                    <span class="font-black mr-2">L30.</span><span class="text-sm font-bold uppercase">Final Test (W tại lớp + S riêng)</span>
+                </div>
             </div>
         </div>
     </section>
@@ -213,14 +233,16 @@
                     </div>
                 </div>
 
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
-                    <h4 class="font-bold text-blue-600 mb-4 uppercase tracking-widest text-sm"><i class="fa-solid fa-microphone-lines mr-2"></i> Chữa Speaking qua Audio</h4>
-                    <p class="text-sm text-slate-600 mb-6 leading-relaxed">15+ bài tập Speaking được feedback dựa trên tiêu chí chấm điểm. Kèm file audio trực tiếp để sửa phát âm và ngữ điệu.</p>
-                    <div class="space-y-3">
-                        <a href="https://www.youtube.com/embed/RV3POPCdXKc" target="_blank" class="flex items-center gap-4 bg-slate-50 p-4 rounded-2xl hover:bg-blue-50 transition border border-slate-100">
-                            <i class="fa-brands fa-youtube text-2xl text-red-600"></i>
-                            <div><p class="font-bold text-sm text-slate-800">Xem Mock-test Speaking 1-on-1</p><p class="text-[10px] text-slate-500">Buổi test thực tế kèm feedback</p></div>
-                        </a>
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <h4 class="font-bold text-blue-600 mb-4 uppercase tracking-widest text-sm"><i class="fa-solid fa-microphone-lines mr-2"></i> Chữa Speaking qua Audio</h4>
+                        <p class="text-sm text-slate-600 mb-6 leading-relaxed">15+ bài tập Speaking được feedback dựa trên tiêu chí chấm điểm. Kèm file audio trực tiếp để sửa phát âm và ngữ điệu.</p>
+                        <div class="space-y-3">
+                            <a href="https://www.youtube.com/embed/RV3POPCdXKc" target="_blank" class="flex items-center gap-4 bg-slate-50 p-4 rounded-2xl hover:bg-blue-50 transition border border-slate-100">
+                                <i class="fa-brands fa-youtube text-2xl text-red-600"></i>
+                                <div><p class="font-bold text-sm text-slate-800">Xem Mock-test Speaking 1-on-1</p><p class="text-[10px] text-slate-500">Buổi test thực tế kèm feedback</p></div>
+                            </a>
+                        </div>
                     </div>
                     
                     <div class="mt-8 p-6 bg-slate-900 text-white rounded-3xl">
@@ -236,43 +258,45 @@
         </div>
     </section>
 
-    <!-- TESTIMONIALS (HÌNH ẢNH FEEDBACK) -->
+    <!-- TESTIMONIALS (HÌNH ẢNH FEEDBACK THUMBNAIL) -->
     <section id="feedback" class="py-24 bg-white border-y border-slate-100">
         <div class="max-w-7xl mx-auto px-6 text-center mb-16">
             <h2 class="text-3xl md:text-4xl font-extrabold mb-4 uppercase tracking-tighter">Niềm tin từ Học viên</h2>
-            <p class="text-slate-500">Những tin nhắn, bảng điểm và sự tiến bộ chân thực nhất qua từng khóa học.</p>
+            <p class="text-slate-500 mb-2">Những tin nhắn, bảng điểm và sự tiến bộ chân thực nhất qua từng khóa học.</p>
+            <p class="text-rose-500 text-sm font-bold animate-pulse"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Click vào ảnh để phóng to đọc rõ hơn nhé!</p>
         </div>
 
-        <!-- Scrollable container for images -->
+        <!-- Thumbnail Scroll Container (26 ảnh) -->
         <div class="scroll-container px-6 max-w-full">
-            <img src="https://i.ibb.co/9H895K3W/image.jpg" class="feedback-img" alt="Feedback">
-            <img src="https://i.ibb.co/wFZpKw34/image.jpg" class="feedback-img" alt="Feedback">
-            <img src="https://i.ibb.co/2zS62qV/image.jpg" class="feedback-img" alt="Feedback">
-            <img src="https://i.ibb.co/0jf9HQB9/image.jpg" class="feedback-img" alt="Feedback">
-            <img src="https://i.ibb.co/qF9PGVk5/image.jpg" class="feedback-img" alt="Feedback">
-            <img src="https://i.ibb.co/xqWpNvrH/image.jpg" class="feedback-img" alt="Feedback">
-            <img src="https://i.ibb.co/0yQWNkk6/image.jpg" class="feedback-img" alt="Feedback">
-            <img src="https://i.ibb.co/ZzdF96FH/image.jpg" class="feedback-img" alt="Feedback">
-            <img src="https://i.ibb.co/vCd8w0rm/image.jpg" class="feedback-img" alt="Feedback">
-            <img src="https://i.ibb.co/QjYqTK0V/image.jpg" class="feedback-img" alt="Feedback">
-            <img src="https://i.ibb.co/hFTskhLp/image.jpg" class="feedback-img" alt="Feedback">
-            <img src="https://i.ibb.co/9HZ6V2v9/image.jpg" class="feedback-img" alt="Feedback">
-            <img src="https://i.ibb.co/SX9dMgsQ/image.jpg" class="feedback-img" alt="Feedback">
-            <img src="https://i.ibb.co/qGYj7Xf/image.jpg" class="feedback-img" alt="Feedback">
-            <img src="https://i.ibb.co/d4dNYb96/image.jpg" class="feedback-img" alt="Feedback">
-            <img src="https://i.ibb.co/vx7x5MqP/image.jpg" class="feedback-img" alt="Feedback">
-            <img src="https://i.ibb.co/1GZhR2HB/image.jpg" class="feedback-img" alt="Feedback">
-            <img src="https://i.ibb.co/HLvZc5PF/image.jpg" class="feedback-img" alt="Feedback">
-            <img src="https://i.ibb.co/d0dNDmSD/image.jpg" class="feedback-img" alt="Feedback">
-            <img src="https://i.ibb.co/q3Ycvf5J/image.jpg" class="feedback-img" alt="Feedback">
-            <img src="https://i.ibb.co/PG29N5KF/image.jpg" class="feedback-img" alt="Feedback">
-            <img src="https://i.ibb.co/DPFMJtvs/image.jpg" class="feedback-img" alt="Feedback">
-            <img src="https://i.ibb.co/n8mdC8tp/image.jpg" class="feedback-img" alt="Feedback">
-            <img src="https://i.ibb.co/nqd17JDH/image.jpg" class="feedback-img" alt="Feedback">
-            <img src="https://i.ibb.co/JFjjrxLK/image.jpg" class="feedback-img" alt="Feedback">
-            <img src="https://i.ibb.co/j9w4YhX4/image.jpg" class="feedback-img" alt="Feedback">
+            <img src="https://i.ibb.co/7tYJmMNK/z6403151299205-646c0022bb8b4b61d28bb80ce69ba0e6.jpg" class="feedback-thumb" alt="Feedback 1" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/cSK2NCMQ/z6324739769405-2436d96bc92848622dfc983e1b03a96c.jpg" class="feedback-thumb" alt="Feedback 2" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/cWwv5Jf/z6168173672080-4eb59f7671dd83733a00d2793a533f63.jpg" class="feedback-thumb" alt="Feedback 3" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/kghDNM3D/z6120152909237-c7d3dcfb0e4cf8415a8092655ece56bc.jpg" class="feedback-thumb" alt="Feedback 4" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/BKjSDFqN/z6100683571560-c035962e6c532e5fd9155c1836d0b1f3.jpg" class="feedback-thumb" alt="Feedback 5" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/k2jRtnP1/z6649986460457-4f5ffde6f7178aef4bbe5a793e7ffd42.jpg" class="feedback-thumb" alt="Feedback 6" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/KxmQZYYf/z6468617203676-d7545782f6c0815e8c4e1fd9e8778143.jpg" class="feedback-thumb" alt="Feedback 7" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/RT2s8psh/z6766223956664-4c9ca197cb9470a0ca68c9b255e035ed.jpg" class="feedback-thumb" alt="Feedback 8" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/kVDFHNr0/z6750044597765-2aa41979401fdae92cf49f8e05404e9e.jpg" class="feedback-thumb" alt="Feedback 9" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/qFm4cr68/z7079697430352-13db96abd4b681526e2747fa5cfe16fa.jpg" class="feedback-thumb" alt="Feedback 10" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/yFx0DGdL/z7456646249497-4f56b0b0ca2c11ef98af68cd17b3179e.jpg" class="feedback-thumb" alt="Feedback 11" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/hFYbZHMR/z7376212282630-8c3d91fc69004fd3054bf7b59642574e.jpg" class="feedback-thumb" alt="Feedback 12" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/mCMX2KDv/z7150670692004-e43443a3d87d4489300b9efbb29d12b6.jpg" class="feedback-thumb" alt="Feedback 13" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/ZszXGtP/Screenshot-2026-04-07-072206.png" class="feedback-thumb" alt="Feedback 14" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/PG72HTp4/Screenshot-2026-04-06-180225.png" class="feedback-thumb" alt="Feedback 15" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/kgRgnPB8/Screenshot-2026-04-05-225040.png" class="feedback-thumb" alt="Feedback 16" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/tpBkYCyn/Screenshot-2026-04-05-224947.png" class="feedback-thumb" alt="Feedback 17" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/p6DqHYK0/Screenshot-2026-04-05-224922.png" class="feedback-thumb" alt="Feedback 18" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/3yDxcRwc/Screenshot-2026-04-05-180716.png" class="feedback-thumb" alt="Feedback 19" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/pBjMS8yh/Screenshot-2026-04-05-180635.png" class="feedback-thumb" alt="Feedback 20" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/MkzGsRrZ/Screenshot-2026-04-05-180552.png" class="feedback-thumb" alt="Feedback 21" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/vCWdFHTg/z7659572757046-53bc8550e30ee0da455cdeb98954108c.jpg" class="feedback-thumb" alt="Feedback 22" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/prwVyr5q/Screenshot-2026-04-02-222256.png" class="feedback-thumb" alt="Feedback 23" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/V0nCg4v7/z6569101618174-e9aa4a70256142b38af65f4e6e956b52.jpg" class="feedback-thumb" alt="Feedback 24" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/Fq448svK/z6441305892947-ae2070aacf0f9980eb2cea3a06b4e54c.jpg" class="feedback-thumb" alt="Feedback 25" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/ymksC0js/z5982066998711-246968d157a055b5ceab9399e34ba712.jpg" class="feedback-thumb" alt="Feedback 26" onclick="openModal(this.src)">
         </div>
-        <div class="text-center mt-6 flex items-center justify-center gap-3 text-slate-400">
+        
+        <div class="text-center mt-4 flex items-center justify-center gap-3 text-slate-400">
             <i class="fa-solid fa-arrow-left text-sm"></i>
             <span class="text-[10px] font-bold uppercase tracking-widest">Vuốt ngang để xem thêm</span>
             <i class="fa-solid fa-arrow-right text-sm"></i>
@@ -328,10 +352,10 @@
 
                 <div class="p-5 bg-slate-900 text-white rounded-2xl">
                     <h4 class="font-bold text-sm text-rose-400 mb-2">Yêu cầu & Cam kết:</h4>
-                    <ul class="text-[11px] text-slate-300 space-y-1.5">
-                        <li>• Level tối thiểu Band 5.0 (B1). Làm Entry Test đầu vào (Không dùng AI/Từ điển).</li>
-                        <li>• Dành ít nhất 5-6 tiếng/tuần tự học ngoài giờ.</li>
-                        <li>• Lớp không cam kết điểm số đầu ra (tránh ảo tưởng), nhưng cam kết sự tiến bộ nếu bạn làm đúng lộ trình.</li>
+                    <ul class="text-[11px] text-slate-300 space-y-1.5 leading-relaxed">
+                        <li>• Level tối thiểu Band 5.0 (B1). Phải làm Entry Test đầu vào (Không dùng AI/Từ điển).</li>
+                        <li>• Dành ít nhất 5-6 tiếng/tuần tự học ngoài giờ lên lớp.</li>
+                        <li>• Lớp không cam kết điểm số đầu ra, nhưng cam kết sự tiến bộ nếu làm đúng lộ trình.</li>
                     </ul>
                 </div>
             </div>
@@ -371,5 +395,42 @@
         <p class="text-[10px]">&copy; 2026 Designed for Lao Gia Khang</p>
     </footer>
 
+    <!-- LIGHTBOX MODAL (POP-UP ẢNH) -->
+    <div id="imageModal" class="fixed inset-0 z-[100] bg-black/90 hidden flex justify-center items-center p-4 transition-opacity duration-300 opacity-0" onclick="closeModal()">
+        <span class="absolute top-6 right-8 text-white text-5xl font-light cursor-pointer hover:text-rose-500 transition-colors" onclick="closeModal()">&times;</span>
+        <img id="modalImage" src="" class="max-w-full max-h-[90vh] object-contain rounded-xl shadow-2xl border border-white/20" onclick="event.stopPropagation()">
+    </div>
+
+    <!-- Script Pop-up ảnh -->
+    <script>
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+
+        function openModal(src) {
+            modalImg.src = src;
+            modal.classList.remove('hidden');
+            // Timeout để hiệu ứng fade in hoạt động
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+            }, 10);
+            document.body.classList.add('modal-active'); // Khóa cuộn trang
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modalImg.src = '';
+            }, 300); // Đợi CSS transition chạy xong
+            document.body.classList.remove('modal-active');
+        }
+
+        // Bấm nút ESC để tắt Pop-up
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape" && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>
