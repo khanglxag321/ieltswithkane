@@ -31,6 +31,33 @@
         .hover-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .hover-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); border-color: #fda4af; }
     </style>
+
+<style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; background-color: #f8fafc; }
+    ...
+</style>
+
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src='https://connect.facebook.net/en_US/fbevents.js';
+s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script');
+
+fbq('init', '1363831299012116'); 
+fbq('track', 'PageView');
+</script>
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1363831299012116&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
+
+	
 </head>
 <body class="text-slate-800 relative">
 
@@ -510,9 +537,10 @@ Quan trọng là bạn hiểu đúng bản chất và viết đúng cách.
             </p>
 
             <a href="https://m.me/ieltswithkane" target="_blank"
-               class="block w-full bg-rose-600 text-white text-center py-5 rounded-[1.5rem] font-black text-xl shadow-xl shadow-rose-200 hover:bg-rose-700 transition-all hover:-translate-y-1">
-                <i class="fa-brands fa-facebook-messenger mr-2"></i> INBOX PAGE LÀM TEST NGAY
-            </a>
+onclick="trackInboxClick()"
+class="block w-full bg-rose-600 text-white text-center py-5 rounded-[1.5rem] font-black text-xl">
+INBOX PAGE LÀM TEST NGAY
+</a>
 
 <p class="text-center mt-3 text-[11px] text-slate-500">
 💳 Hỗ trợ thanh toán linh hoạt (chia 2 lần)
@@ -593,5 +621,14 @@ Quan trọng là bạn hiểu đúng bản chất và viết đúng cách.
         }
     </script>
     </script>
+
+<script>
+function trackInboxClick() {
+    fbq('track', 'Contact', {
+        method: 'Messenger'
+    });
+}
+</script>
+	
 </body>
 </html>
