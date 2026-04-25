@@ -386,9 +386,21 @@ Quan trọng là bạn hiểu đúng bản chất và viết đúng cách.
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-extrabold mb-4 uppercase tracking-tighter">Học thực - Sửa bài thực</h2>
-                <p class="text-slate-500 max-w-2xl mx-auto">Lớp không nhận học thử. Hãy tham khảo cách Kane truyền đạt kiến thức và sự tận tâm trong việc chữa bài trước khi quyết định đồng hành.</p>
+                <p class="text-slate-500 max-w-2xl mx-auto">Bạn có thể đăng ký <b>buổi học thử 1-1 miễn phí</b> để trải nghiệm cách mình truyền đạt kiến thức và sự tận tâm trong việc chữa bài trước khi quyết định đồng hành nha.</p>
             </div>
 
+<div class="mt-8 flex justify-center">
+    <a href="https://m.me/ieltswithkane" target="_blank"
+    onclick="trackTrialClick()"
+    class="w-full sm:w-auto text-center bg-rose-600 text-white px-8 py-4 sm:py-5 rounded-2xl font-bold text-base sm:text-lg hover:bg-rose-700 transition shadow-lg shadow-rose-600/30">
+        🎯 Đăng ký học thử miễn phí
+    </a>
+</div>
+
+<p class="text-[12px] text-slate-400 mt-2 text-center">
+⏱️ 45–60 phút | Feedback trực tiếp
+</p>
+			
             <!-- Lớp học mẫu (3 Videos) -->
             <h3 class="text-2xl font-black mb-8 flex items-center gap-3"><span class="bg-rose-600 text-white w-10 h-10 rounded-xl flex items-center justify-center text-sm"><i class="fa-solid fa-play"></i></span> Lớp học mẫu (Recordings)</h3>
             <div class="grid md:grid-cols-3 gap-8 mb-20">
@@ -854,6 +866,12 @@ function trackInboxClick() {
 	  fbq('track', 'Lead');
 }
 </script>
-	
+<script>
+function trackTrialClick() {
+    fbq('track', 'Lead', {
+        content_name: 'Trial Registration'
+    });
+}
+</script>	
 </body>
 </html>
