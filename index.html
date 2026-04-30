@@ -12,7 +12,9 @@
     
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; background-color: #f8fafc; }
-        .hero-gradient { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+   .hero-gradient {
+    background: linear-gradient(135deg, #020617 0%, #0f172a 40%, #1e293b 100%);
+}
         
         /* Tùy chỉnh thanh cuộn ngang cho feedback thumbnail */
         .scroll-container { display: flex; overflow-x: auto; gap: 1rem; padding-bottom: 1.5rem; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent; }
@@ -64,16 +66,44 @@ src="https://www.facebook.com/tr?id=1363831299012116&ev=PageView&noscript=1"/>
     <!-- NAVIGATION -->
     <nav class="fixed top-0 w-full z-40 bg-white/95 backdrop-blur border-b border-slate-200 px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="font-black text-2xl italic tracking-tighter text-slate-900">IELTS <span class="text-rose-600">with KANE</span></div>
-            <div class="hidden lg:flex gap-8 text-sm font-bold uppercase tracking-widest text-slate-500">
-		 <a href="#about" class="hover:text-rose-600 transition">About me</a>
-                <a href="#overview" class="hover:text-rose-600 transition">Tổng quan</a>
-                <a href="#syllabus" class="hover:text-rose-600 transition">Lộ trình</a>
+            <a href="index.html" class="font-black text-2xl italic tracking-tighter text-slate-900">
+    IELTS <span class="text-rose-600">with KANE</span>
+</a>
+            <div class="hidden lg:flex gap-8 text-sm font-bold uppercase tracking-wide text-slate-500">
+ 		
+<div class="relative group">
+    <span class="cursor-pointer flex items-center gap-1">
+        Khóa học <i class="fa-solid fa-chevron-down text-[10px]"></i>
+    </span>
+
+    <div class="absolute top-full left-0 hidden group-hover:block bg-white shadow-xl rounded-2xl p-3 w-64 border border-slate-200">
+
+        <a href="checkpoint2.html"
+           class="block px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 rounded-xl transition leading-snug">
+            Checkpoint 2<br>
+            <span class="text-xs text-slate-400 font-medium">(5.0 → 6.0+)</span>
+        </a>
+
+        <a href="cap-toc.html"
+           class="block px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 rounded-xl transition leading-snug">
+            Luyện thi cấp tốc<br>
+            <span class="text-xs text-slate-400 font-medium">(5.0 → 6.0+ | 1–1)</span>
+        </a>
+
+    </div>
+</div> 
+		<a href="#about" class="hover:text-rose-600 transition">About me</a>
+               
+            
                 <a href="#demo" class="hover:text-rose-600 transition">Học thử</a>
                 <a href="#feedback" class="hover:text-rose-600 transition">Feedback</a>
-		<a href="#schedule" class="hover:text-rose-600 transition">Khai giảng</a>
+	
             </div>
-            <a href="#register" class="bg-slate-900 text-white px-6 py-2.5 rounded-full font-bold text-sm hover:bg-rose-600 transition-colors shadow-lg">Nhận tư vấn</a>
+           <a href="https://m.me/ieltswithkane" target="_blank"
+onclick="trackInboxClick()"
+class="bg-slate-900 text-white px-6 py-2.5 rounded-full font-bold text-sm hover:bg-rose-600 transition-colors shadow-lg">
+Nhận tư vấn
+</a>
         </div>
     </nav>
 
@@ -83,12 +113,17 @@ src="https://www.facebook.com/tr?id=1363831299012116&ev=PageView&noscript=1"/>
             <div class="md:col-span-7">
                 <div class="inline-block border border-rose-500/50 bg-rose-500/20 text-rose-300 px-4 py-1.5 rounded-full text-xs font-bold mb-6 tracking-widest uppercase">Course Enrolling</div>
                 <h1 class="text-5xl lg:text-7xl font-extrabold mb-6 leading-tight tracking-tighter">
-                    IELTS Checkpoint 2 <br><span class="text-rose-500">(Band 5.0 - 6.0+)</span>
+                   Bứt phá IELTS <br>
+    <span class="text-rose-500">Speaking & Writing</span>
                 </h1>
                 <p class="text-slate-400 text-lg md:text-xl mb-10 italic max-w-2xl font-light">"Không cần viết khó, chỉ cần viết đúng." — Bứt phá Speaking & Writing cùng phương pháp thực chiến, tối ưu hóa tiêu chí chấm điểm.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                    <a href="#syllabus" class="bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold hover:bg-slate-100 transition-colors text-center shadow-xl">Xem Lộ Trình 30 Buổi</a>
-                    <a href="#register" class="bg-rose-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-rose-700 transition-colors text-center shadow-xl shadow-rose-600/20">Đăng Ký Giữ Chỗ</a>
+
+                    <a href="https://m.me/ieltswithkane" target="_blank"
+onclick="trackTrialClick()"
+class="bg-rose-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-rose-700 transition shadow-lg">
+🎯 Đăng ký học thử miễn phí
+</a>
                 </div>
             </div>
             
@@ -96,9 +131,9 @@ src="https://www.facebook.com/tr?id=1363831299012116&ev=PageView&noscript=1"/>
                 <div class="bg-white/5 border border-white/10 p-8 rounded-[3rem] backdrop-blur-md max-w-sm w-full text-center relative">
                     <img src="https://i.ibb.co/WN5m6h5W/image.jpg" alt="Lao Gia Khang" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-rose-500 shadow-2xl">
                     <h3 class="text-2xl font-black mb-1">Lao Gia Khang (Kane)</h3>
-                    <p class="text-rose-400 font-bold uppercase tracking-widest text-xs mb-4">Giảng viên trực tiếp</p>
+                    <p class="text-rose-400 font-bold uppercase tracking-wide text-xs mb-4">Giảng viên trực tiếp</p>
                     <div class="bg-slate-900/50 p-4 rounded-2xl mb-6 border border-white/5">
-                        <p class="text-3xl font-black text-white">8.5 <span class="text-sm font-normal text-slate-400 uppercase tracking-widest">Overall</span></p>
+                        <p class="text-3xl font-black text-white">8.5 <span class="text-sm font-normal text-slate-400 uppercase tracking-wide">Overall</span></p>
                         <div class="flex justify-center gap-4 mt-2 text-xs font-bold text-slate-300">
                             <span>Speaking: 8.0</span>
                             <span class="w-1 h-1 bg-rose-500 rounded-full self-center"></span>
@@ -108,17 +143,18 @@ src="https://www.facebook.com/tr?id=1363831299012116&ev=PageView&noscript=1"/>
                     
                     <!-- Hiển thị chứng chỉ minh bạch -->
                     <div class="mt-4 border-t border-white/10 pt-4">
-                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-3">Chứng chỉ xác thực (Click để phóng to)</p>
+                        <p class="text-[10px] text-slate-400 uppercase tracking-wide mb-3">Chứng chỉ xác thực (Click để phóng to)</p>
                         <img src="https://i.ibb.co/GzQPh5h/Cam-Scanner-03-30-2026-18-24.jpg" alt="Chứng chỉ IELTS" class="w-full max-w-[200px] mx-auto rounded-lg border border-slate-600 cursor-pointer hover:border-rose-400 transition" onclick="openModal(this.src)">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-rose-600/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3"></div>
+        <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-rose-600/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3"></div>
     </section>
  
+
 <!-- SECTION ABOUT ME (Đã chuyển lên đây) -->
-    <section id="about" class="py-24 px-6 bg-white border-b border-slate-100 scroll-mt-20">
+    <section id="about" class="py-20 px-6 bg-white border-b border-slate-100 scroll-mt-20">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-extrabold mb-4 uppercase tracking-tighter">About Me</h2>
@@ -194,202 +230,19 @@ Quan trọng là bạn hiểu đúng bản chất và viết đúng cách.
         </div>
     </section>
 
-    <!-- COURSE OVERVIEW (TỔNG QUAN) -->
-    <section id="overview" class="py-24 px-6 bg-white border-b border-slate-100">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-extrabold mb-4 uppercase tracking-tighter">Tổng quan khóa học</h2>
-                <div class="w-20 h-1 bg-rose-600 mx-auto rounded-full"></div>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 hover-card">
-                    <div class="w-14 h-14 bg-rose-100 text-rose-600 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm"><i class="fa-solid fa-bullseye"></i></div>
-                    <h4 class="font-bold text-lg mb-3">Mục tiêu 6.0+</h4>
-                    <p class="text-sm text-slate-600 leading-relaxed">Dành cho học viên ở level B1+ (Band 5.0), mong muốn chinh phục mốc 6.0+ với sự tự tin và kiểm soát tốt 4 kỹ năng.</p>
-                </div>
-                <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 hover-card">
-                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm"><i class="fa-solid fa-pen-nib"></i></div>
-                    <h4 class="font-bold text-lg mb-3">Trọng tâm S & W</h4>
-                    <p class="text-sm text-slate-600 leading-relaxed">Tập trung tăng tốc Speaking & Writing. Hiểu rõ tiêu chí chấm điểm, áp dụng "cấu trúc thực chiến" ăn điểm.</p>
-                </div>
-                <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 hover-card">
-                    <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm"><i class="fa-solid fa-gift"></i></div>
-                    <h4 class="font-bold text-lg mb-3">Tặng bộ Video L & R</h4>
-                    <p class="text-sm text-slate-600 leading-relaxed">Video hướng dẫn chiến thuật Listening & Reading + Phương pháp Repetitive giúp Kane đạt 8.5 hai kỹ năng này.</p>
-                </div>
-                <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 hover-card">
-                    <div class="w-14 h-14 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm"><i class="fa-solid fa-calendar-check"></i></div>
-                    <h4 class="font-bold text-lg mb-3">Lộ trình 30 buổi</h4>
-                    <p class="text-sm text-slate-600 leading-relaxed">Mỗi tuần học 2 buổi (2h/buổi) được thiết kế để duy trì đều đặn 4 kỹ năng mỗi tuần, giúp học viên tiến bộ ổn định và bền vững.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SYLLABUS (LỘ TRÌNH 30 BUỔI CHI TIẾT) -->
-    <section id="syllabus" class="py-24 px-6 bg-slate-900 text-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 border-b border-white/10 pb-8">
-                <div>
-                    <h2 class="text-3xl md:text-5xl font-black mb-4 uppercase tracking-tighter">Lộ trình chi tiết</h2>
-                    <p class="text-slate-400 italic">Lộ trình 15 tuần (2 buổi/tuần), kết hợp học trên lớp và tự luyện tại nhà.</p>
-                </div>
-                <div class="bg-rose-600/20 text-rose-400 px-6 py-2 rounded-full font-bold border border-rose-500/30">
-                    <i class="fa-solid fa-clock mr-2"></i> 60 giờ học (~3.5 tháng)
-                </div>
-            </div>
-
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-<!-- WEEK 1 -->
-<div class="bg-white/5 border border-white/10 p-6 rounded-2xl">
-<h3 class="font-bold text-rose-400 mb-3">Tuần 1</h3>
-<ul class="text-sm text-slate-300 space-y-1">
-<li>• Speaking marking criteria + IPA</li>
-<li>• Task 2 marking criteria + “P-E-R” framework</li>
-</ul>
-</div>
-
-<!-- WEEK 2 -->
-<div class="bg-white/5 border border-white/10 p-6 rounded-2xl">
-<h3 class="font-bold text-rose-400 mb-3">Tuần 2</h3>
-<ul class="text-sm text-slate-300 space-y-1">
-<li>• Linking sounds + “FETCH” framework</li>
-<li>• Viết intro + ngôn ngữ tăng/giảm (Task 1)</li>
-</ul>
-</div>
-
-<!-- WEEK 3 -->
-<div class="bg-white/5 border border-white/10 p-6 rounded-2xl">
-<h3 class="font-bold text-rose-400 mb-3">Tuần 3</h3>
-<ul class="text-sm text-slate-300 space-y-1">
-<li>• Speaking Part 1 + 2 (famous person)</li>
-<li>• Cấu trúc thực chiến Task 2 + viết intro</li>
-</ul>
-</div>
-
-<!-- WEEK 4 -->
-<div class="bg-white/5 border border-white/10 p-6 rounded-2xl">
-<h3 class="font-bold text-rose-400 mb-3">Tuần 4</h3>
-<ul class="text-sm text-slate-300 space-y-1">
-<li>• Speaking Part 1 + 2 (smartphone)</li>
-<li>• Task 1 (change) – cấu trúc cơ bản & thực chiến</li>
-</ul>
-</div>
-
-<!-- WEEK 5 -->
-<div class="bg-white/5 border border-white/10 p-6 rounded-2xl">
-<h3 class="font-bold text-rose-400 mb-3">Tuần 5</h3>
-<ul class="text-sm text-slate-300 space-y-1">
-<li>• Speaking Part 1 + 2 (journey)</li>
-<li>• 3 dạng body paragraph + Kỹ thuật counter argument</li>
-</ul>
-</div>
-
-<!-- WEEK 6 -->
-<div class="bg-white/5 border border-white/10 p-6 rounded-2xl">
-<h3 class="font-bold text-rose-400 mb-3">Tuần 6</h3>
-<ul class="text-sm text-slate-300 space-y-1">
-<li>• Speaking Part 1 + 2 (park)</li>
-<li>• Task 1 (change) – overview + ít đối tượng</li>
-</ul>
-</div>
-
-<!-- WEEK 7 -->
-<div class="bg-white/5 border border-white/10 p-6 rounded-2xl">
-<h3 class="font-bold text-rose-400 mb-3">Tuần 7</h3>
-<ul class="text-sm text-slate-300 space-y-1">
-<li>• Speaking Part 1 + 2 (book/movie/music)</li>
-<li>• Agree/Disagree (Should) + Speaking Part 3</li>
-</ul>
-</div>
-
-<!-- WEEK 8 -->
-<div class="bg-white/5 border border-white/10 p-6 rounded-2xl">
-<h3 class="font-bold text-rose-400 mb-3">Tuần 8</h3>
-<ul class="text-sm text-slate-300 space-y-1">
-<li>• Speaking Part 1 + 2 (wild animals)</li>
-<li>• Task 1 nhiều đối tượng (change)</li>
-</ul>
-</div>
-
-<!-- WEEK 9 -->
-<div class="bg-white/5 border border-white/10 p-6 rounded-2xl">
-<h3 class="font-bold text-rose-400 mb-3">Tuần 9</h3>
-<ul class="text-sm text-slate-300 space-y-1">
-<li>• Speaking Part 1 + 2 (food)</li>
-<li>• Agree/Disagree (the only/the best) + Speaking Part 3</li>
-</ul>
-</div>
-
-<!-- WEEK 10 -->
-<div class="bg-white/5 border border-white/10 p-6 rounded-2xl">
-<h3 class="font-bold text-rose-400 mb-3">Tuần 10</h3>
-<ul class="text-sm text-slate-300 space-y-1">
-<li>• Speaking Part 1 + 2 (positive change)</li>
-<li>• Task 1 (no change) – cấu trúc thực chiến</li>
-</ul>
-</div>
-
-<!-- WEEK 11 -->
-<div class="bg-white/5 border border-white/10 p-6 rounded-2xl">
-<h3 class="font-bold text-rose-400 mb-3">Tuần 11</h3>
-<ul class="text-sm text-slate-300 space-y-1">
-<li>• Agree/Disagree (better) + Speaking Part 3</li>
-<li>• Task 1 (no change) – overview + ít đối tượng</li>
-</ul>
-</div>
-
-<!-- WEEK 12 -->
-<div class="bg-white/5 border border-white/10 p-6 rounded-2xl">
-<h3 class="font-bold text-rose-400 mb-3">Tuần 12</h3>
-<ul class="text-sm text-slate-300 space-y-1">
-<li>• Discuss both views + Speaking Part 3</li>
-<li>• Task 1 nhiều đối tượng (no change)</li>
-</ul>
-</div>
-
-<!-- WEEK 13 -->
-<div class="bg-white/5 border border-white/10 p-6 rounded-2xl">
-<h3 class="font-bold text-rose-400 mb-3">Tuần 13</h3>
-<ul class="text-sm text-slate-300 space-y-1">
-<li>• Discuss both views + Speaking Part 3</li>
-<li>• Task 1 (Maps)</li>
-</ul>
-</div>
-
-<!-- WEEK 14 -->
-<div class="bg-white/5 border border-white/10 p-6 rounded-2xl">
-<h3 class="font-bold text-rose-400 mb-3">Tuần 14</h3>
-<ul class="text-sm text-slate-300 space-y-1">
-<li>• Advantages vs Disadvantages</li>
-<li>• Task 1 (Process)</li>
-</ul>
-</div>
-
-<!-- WEEK 15 -->
-<div class="bg-rose-600 text-white p-6 rounded-2xl">
-<h3 class="font-bold mb-3">Tuần 15 (Final)</h3>
-<ul class="text-sm space-y-1">
-<li>• Problems – Causes – Solutions</li>
-<li>• Final Test (Writing tại lớp + Speaking test riêng + L/R tại nhà)</li>
-</ul>
-</div>
-
-</div>
-    </section>
-
+   
     <!-- DEMO & FEEDBACK SAMPLES -->
-    <section id="demo" class="py-24 px-6 bg-slate-50">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-extrabold mb-4 uppercase tracking-tighter">Học thực - Sửa bài thực</h2>
-                <p class="text-slate-500 max-w-2xl mx-auto">Bạn có thể đăng ký <b>buổi học thử 1-1 miễn phí</b> để trải nghiệm cách mình truyền đạt kiến thức và sự tận tâm trong việc chữa bài trước khi quyết định đồng hành nha.</p>
+ <section id="demo" class="py-20 px-6 bg-gradient-to-br from-[#020617] via-[#0f172a] to-[#1e293b] relative overflow-hidden">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-rose-600/10 blur-[120px] rounded-full pointer-events-none"></div>        
+<div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-4 uppercase tracking-tighter text-white">
+    Học thực - Sửa bài thực
+</h2>
+                <p class="text-slate-300 max-w-2xl mx-auto">Bạn có thể đăng ký <b>buổi học thử 1-1 miễn phí</b> để trải nghiệm cách mình truyền đạt kiến thức và sự tận tâm trong việc chữa bài trước khi quyết định đồng hành nha.</p>
             </div>
 
-<div class="mt-5 flex justify-center">
+<div class="mt-8 flex justify-center">
     <a href="https://m.me/ieltswithkane" target="_blank"
     onclick="trackTrialClick()"
     class="w-full sm:w-auto text-center bg-rose-600 text-white px-8 py-4 sm:py-5 rounded-2xl font-bold text-base sm:text-lg hover:bg-rose-700 transition shadow-lg shadow-rose-600/30">
@@ -402,33 +255,43 @@ Quan trọng là bạn hiểu đúng bản chất và viết đúng cách.
 </p>
 
             <!-- Lớp học mẫu (3 Videos) -->
-            <h3 class="text-2xl font-black mb-8 flex items-center gap-3"><span class="bg-rose-600 text-white w-10 h-10 rounded-xl flex items-center justify-center text-sm"><i class="fa-solid fa-play"></i></span> Lớp học mẫu (Recordings)</h3>
+            <h3 class="text-2xl font-black mb-8 flex items-center gap-3 text-white"><span class="bg-rose-600 text-white w-10 h-10 rounded-xl flex items-center justify-center text-sm"><i class="fa-solid fa-play"></i></span> Lớp học mẫu (Recordings)</h3>
             <div class="grid md:grid-cols-3 gap-8 mb-20">
-                <div class="bg-white p-4 rounded-3xl shadow-sm border border-slate-200 hover-card">
-                    <div class="aspect-video bg-slate-900 rounded-2xl overflow-hidden mb-4">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/J7P_hA-vgf4" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <h4 class="font-bold text-center">Writing Task 2</h4>
-                </div>
-                <div class="bg-white p-4 rounded-3xl shadow-sm border border-slate-200 hover-card">
-                    <div class="aspect-video bg-slate-900 rounded-2xl overflow-hidden mb-4">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Fksdp3Lupts" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <h4 class="font-bold text-center">Speaking Part 2</h4>
-                </div>
-                <div class="bg-white p-4 rounded-3xl shadow-sm border border-slate-200 hover-card">
-                    <div class="aspect-video bg-slate-900 rounded-2xl overflow-hidden mb-4">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/GxnF-D8qlWM" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <h4 class="font-bold text-center">Writing Task 1</h4>
-                </div>
-            </div>
 
-            <!-- Đặc quyền chữa bài -->
+<div class="bg-white/5 backdrop-blur p-4 rounded-3xl border border-white/10 hover:border-rose-400/40 transition hover-card">
+<div class="aspect-video bg-black/60 rounded-2xl overflow-hidden mb-4 border border-white/10">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/J7P_hA-vgf4" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <h4 class="font-bold text-center text-white">Writing Task 2</h4>
+    </div>
+
+<div class="bg-white/5 backdrop-blur p-4 rounded-3xl border border-white/10 hover:border-rose-400/40 transition hover-card">
+<div class="aspect-video bg-black/60 rounded-2xl overflow-hidden mb-4 border border-white/10">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Fksdp3Lupts" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <h4 class="font-bold text-center text-white">Speaking Part 2</h4>
+    </div>
+
+<div class="bg-white/5 backdrop-blur p-4 rounded-3xl border border-white/10 hover:border-rose-400/40 transition hover-card">
+<div class="aspect-video bg-black/60 rounded-2xl overflow-hidden mb-4 border border-white/10">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/GxnF-D8qlWM" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <h4 class="font-bold text-center text-white">Writing Task 1</h4>
+    </div>
+
+</div>
+           
+</section>
+
+<section class="py-20 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+
+
+ <!-- Đặc quyền chữa bài -->
             <h3 class="text-2xl font-black mb-8 flex items-center gap-3"><span class="bg-blue-600 text-white w-10 h-10 rounded-xl flex items-center justify-center text-sm"><i class="fa-solid fa-check-double"></i></span> Trải nghiệm sửa bài 1-1</h3>
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
-                    <h4 class="font-bold text-rose-600 mb-4 uppercase tracking-widest text-sm"><i class="fa-solid fa-file-pen mr-2"></i> Chữa Writing Chi Tiết</h4>
+                <div class="bg-slate-50 p-8 rounded-3xl shadow-sm border border-slate-200">
+                    <h4 class="font-bold text-rose-600 mb-4 uppercase tracking-wide text-sm"><i class="fa-solid fa-file-pen mr-2"></i> Chữa Writing Chi Tiết</h4>
                     <p class="text-sm text-slate-600 mb-6 leading-relaxed">20+ bài viết Writing được feedback chi tiết về từ vựng, ngữ pháp, và đặc biệt là mạch phát triển ý (coherence & cohesion).</p>
                     <div class="space-y-3">
                         <a href="https://docs.google.com/document/d/1CyY9FahnXRdKLLtHlIe37gilM0Wid_pUsMe3iEuSbYw/edit?usp=sharing" target="_blank" class="flex items-center gap-4 bg-slate-50 p-4 rounded-2xl hover:bg-rose-50 transition border border-slate-100">
@@ -446,9 +309,9 @@ Quan trọng là bạn hiểu đúng bản chất và viết đúng cách.
                     </div>
                 </div>
 
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                <div class="bg-slate-50 p-8 rounded-3xl shadow-sm border border-slate-200 flex flex-col justify-between">
                     <div>
-                        <h4 class="font-bold text-blue-600 mb-4 uppercase tracking-widest text-sm"><i class="fa-solid fa-microphone-lines mr-2"></i> Chữa Speaking qua Audio</h4>
+                        <h4 class="font-bold text-blue-600 mb-4 uppercase tracking-wide text-sm"><i class="fa-solid fa-microphone-lines mr-2"></i> Chữa Speaking qua Audio</h4>
                         <p class="text-sm text-slate-600 mb-6 leading-relaxed">15+ bài tập Speaking được feedback dựa trên tiêu chí chấm điểm. Kèm file audio trực tiếp để sửa phát âm và ngữ điệu.</p>
                         <div class="space-y-3">
                             <a href="https://www.youtube.com/embed/RV3POPCdXKc" target="_blank" class="flex items-center gap-4 bg-slate-50 p-4 rounded-2xl hover:bg-blue-50 transition border border-slate-100">
@@ -471,13 +334,30 @@ Quan trọng là bạn hiểu đúng bản chất và viết đúng cách.
         </div>
     </section>
 
+
     <!-- TESTIMONIALS (HÌNH ẢNH FEEDBACK THUMBNAIL) -->
-    <section id="feedback" class="py-24 bg-white border-y border-slate-100">
-        <div class="max-w-7xl mx-auto px-6 text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-4 uppercase tracking-tighter">Niềm tin từ Học viên</h2>
-            <p class="text-slate-500 mb-2">Những tin nhắn, bảng điểm và sự tiến bộ chân thực nhất qua từng khóa học.</p>
-            <p class="text-rose-500 text-sm font-bold animate-pulse"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Click vào ảnh để phóng to đọc rõ hơn nhé!</p>
-        </div>
+    <section id="feedback" class="py-20 bg-[#0f172a] border-y border-slate-800 relative overflow-hidden">
+
+ <!-- Glow background -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-rose-600/10 blur-[120px] rounded-full"></div>
+
+    <div class="max-w-7xl mx-auto px-6 text-center mb-12 relative z-10">
+
+
+  <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-white tracking-tight leading-tight">
+    Niềm tin từ học viên
+</h2>
+
+    <p class="text-slate-300 mb-2">
+        Những tin nhắn, bảng điểm và sự tiến bộ chân thực nhất qua từng khóa học.
+    </p>
+
+    <p class="text-rose-400 text-sm font-bold animate-pulse">
+        <i class="fa-solid fa-magnifying-glass-plus mr-1"></i>
+        Click vào ảnh để phóng to đọc rõ hơn nhé!
+    </p>
+
+</div>
 
         <!-- Thumbnail Scroll Container (29 ảnh) -->
         <div class="scroll-container px-6 max-w-full">
@@ -514,270 +394,12 @@ Quan trọng là bạn hiểu đúng bản chất và viết đúng cách.
         
         <div class="text-center mt-4 flex items-center justify-center gap-3 text-slate-400">
             <i class="fa-solid fa-arrow-left text-sm"></i>
-            <span class="text-[10px] font-bold uppercase tracking-widest">Vuốt ngang để xem thêm</span>
+            <span class="text-[10px] font-bold uppercase tracking-wide">Vuốt ngang để xem thêm</span>
             <i class="fa-solid fa-arrow-right text-sm"></i>
         </div>
     </section>
 
-    <!-- HỆ SINH THÁI -->
-    <section class="py-24 px-6 bg-slate-50">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-center font-bold text-slate-400 text-sm uppercase tracking-[0.3em] mb-12">Hệ sinh thái IELTS with Kane</h2>
-            <div class="grid md:grid-cols-3 gap-6 text-center">
-                <div class="p-8 bg-white rounded-3xl border border-slate-200 opacity-60">
-                    <p class="text-xs font-bold text-slate-500 mb-2 uppercase tracking-widest">Checkpoint 1</p>
-                    <h4 class="text-xl font-bold mb-4">Mục tiêu 4.0 - 5.0</h4>
-                    <span class="bg-slate-100 text-slate-600 px-4 py-1 rounded-full text-[10px] font-bold">COMING SOON</span>
-                </div>
-                <div class="p-8 bg-white rounded-3xl border-2 border-rose-500 shadow-xl relative scale-105 z-10">
-                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-rose-600 text-white text-[10px] px-4 py-1 rounded-full font-bold uppercase">Đang tuyển sinh</div>
-                    <p class="text-xs font-bold text-rose-600 mb-2 uppercase tracking-widest">Checkpoint 2</p>
-                    <h4 class="text-2xl font-black mb-4">Mục tiêu 5.0 - 6.0+</h4>
-                    <p class="text-[11px] text-slate-500 font-medium">Bứt phá Speaking & Writing</p>
-                </div>
-                <div class="p-8 bg-white rounded-3xl border border-slate-200 opacity-60">
-                    <p class="text-xs font-bold text-slate-500 mb-2 uppercase tracking-widest">Checkpoint 3</p>
-                    <h4 class="text-xl font-bold mb-4">Mục tiêu 6.0 - 7.0+</h4>
-                    <span class="bg-slate-100 text-slate-600 px-4 py-1 rounded-full text-[10px] font-bold">COMING SOON</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-<!-- KHAI GIẢNG -->
-<section id="schedule" class="py-24 px-6 bg-white border-t border-slate-100">
-    <div class="max-w-6xl mx-auto">
-
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-4 uppercase tracking-tighter">
-                Lịch khai giảng
-            </h2>
-            <div class="flex flex-wrap justify-center gap-4 mt-6">
-
-    <div class="px-5 py-2 bg-slate-100 rounded-full text-sm font-semibold text-slate-700 border border-slate-200">
-        📅 2 buổi/tuần
-    </div>
-
-    <div class="px-5 py-2 bg-slate-100 rounded-full text-sm font-semibold text-slate-700 border border-slate-200">
-        💻 Học Online qua Zoom
-    </div>
-
-    <div class="px-5 py-2 bg-slate-100 rounded-full text-sm font-semibold text-slate-700 border border-slate-200">
-        👥 Tối đa 8 học viên
-    </div>
-
-</div>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-6">
-
-            <!-- CLASS A -->
-            <div class="p-8 bg-slate-50 rounded-3xl border border-slate-200 hover-card">
-                <p class="text-xs font-bold text-rose-600 uppercase tracking-widest mb-2">Lớp A</p>
-                <h4 class="text-xl font-black mb-4">Thứ 2 - Thứ 5</h4>
-
-                <div class="space-y-2 text-sm text-slate-600">
-                    <p><b>Khai giảng:</b> 04/05/2026</p>
-                    <p><b>Kết thúc:</b> 20/08/2026</p>
-                    <p><b>Giờ học:</b> 20:00 - 22:00</p>
-                </div>
-<div class="mt-4 space-y-2">
-
-    <span class="inline-block bg-rose-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-    🔥 Chỉ còn 3/8 chỗ
-</span>
-
-
-</div>
-             
-            </div>
-
-            <!-- CLASS B -->
-            <div class="p-8 bg-slate-50 rounded-3xl border border-slate-200 hover-card">
-                <p class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">Lớp B</p>
-                <h4 class="text-xl font-black mb-4">Thứ 3 - Thứ 6</h4>
-
-                <div class="space-y-2 text-sm text-slate-600">
-                    <p><b>Khai giảng:</b> 05/05/2026</p>
-                    <p><b>Kết thúc:</b> 21/08/2026</p>
-                    <p><b>Giờ học:</b> 20:00 - 22:00</p>
-                </div>
-<div class="mt-4">
-    <span class="inline-block bg-rose-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-    ⏳ Còn 6 chỗ
-</span>
-</div>
-             
-            </div>
-
-            <!-- CLASS C -->
-            <div class="p-8 bg-slate-50 rounded-3xl border border-slate-200 hover-card">
-                <p class="text-xs font-bold text-emerald-600 uppercase tracking-widest mb-2">Lớp C</p>
-                <h4 class="text-xl font-black mb-4">Thứ 4 - Thứ 7</h4>
-
-                <div class="space-y-2 text-sm text-slate-600">
-                    <p><b>Khai giảng:</b> 06/05/2026</p>
-                    <p><b>Kết thúc:</b> 22/08/2026</p>
-                    <p><b>Giờ học:</b> 20:00 - 22:00</p>
-                </div>
-<div class="mt-4">
-    <span class="inline-block bg-emerald-100 text-emerald-600 text-xs font-bold px-3 py-1 rounded-full">
-        🟢 Lớp mới mở
-    </span>
-</div>
-              
-            </div>
-
-        </div>
-    </div>
-</section>
-
-
-    <!-- ĐĂNG KÝ (REGISTER) -->
-  <section id="register" class="py-24 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
-
-    <div class="max-w-6xl mx-auto bg-white text-slate-900 rounded-[3rem] shadow-2xl overflow-hidden flex flex-col lg:flex-row overflow-hidden">
-
-<!-- LEFT -->
-<div class="relative p-8 sm:p-10 lg:p-20 lg:w-1/2 bg-gradient-to-br from-slate-100 to-white flex flex-col justify-center lg:after:content-['']
-lg:after:absolute 
-lg:after:right-0 
-lg:after:top-1/2 
-lg:after:-translate-y-1/2 
-lg:after:h-[70%] 
-lg:after:w-px 
-lg:after:bg-gradient-to-b 
-lg:after:from-transparent 
-lg:after:via-slate-300 
-lg:after:to-transparent">
-
-    <!-- subtle glow -->
-    <div class="absolute inset-0 bg-white/40 backdrop-blur-[2px] rounded-[3rem]"></div>
-
-    <div class="relative z-10">
-
-        <!-- Eyebrow -->
-        <p class="text-xs font-bold text-rose-500 uppercase tracking-widest mb-3">
-            Cam kết học tập
-        </p>
-
-        <!-- Title -->
-        <h4 class="font-extrabold text-3xl lg:text-4xl text-slate-900 mb-10 lg:mb-12 leading-tight">
-            Yêu cầu & Cam kết
-        </h4>
-
-        <!-- List -->
-        <ul class="space-y-6 sm:space-y-7">
-
-            <li class="flex items-start gap-4 sm:gap-5">
-                <div class="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-xl bg-rose-500/10 text-rose-600 shrink-0">
-                    <i class="fa-solid fa-clock"></i>
-                </div>
-                <div class="text-slate-700 text-sm sm:text-base lg:text-lg leading-relaxed">
-                    <span class="font-bold text-slate-900">5–6 giờ tự học mỗi tuần</span><br>
-                    Ôn bài, làm bài tập và luyện Listening & Reading đều đặn.
-                </div>
-            </li>
-
-            <li class="flex items-start gap-4 sm:gap-5">
-                <div class="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-xl bg-rose-500/10 text-rose-600 shrink-0">
-                    <i class="fa-solid fa-calendar-check"></i>
-                </div>
-                <div class="text-slate-700 text-sm sm:text-base lg:text-lg leading-relaxed">
-                    <span class="font-semibold text-slate-900">Tham gia đầy đủ & đúng giờ</span><br>
-                    Xem lại recording nếu vắng để không mất nhịp học.
-                </div>
-            </li>
-
-            <li class="flex items-start gap-4 sm:gap-5">
-                <div class="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-xl bg-rose-500/10 text-rose-600 shrink-0 mt-0.5">
-                    <i class="fa-solid fa-comments"></i>
-                </div>
-                <div class="text-slate-700 text-sm sm:text-base lg:text-lg leading-relaxed">
-                    <span class="font-semibold text-slate-900">Chủ động với feedback</span><br>
-                    Đọc kỹ, áp dụng và hỏi lại khi chưa hiểu.
-                </div>
-            </li>
-
-            <li class="flex items-start gap-4 sm:gap-5">
-                <div class="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-xl bg-rose-500/10 text-rose-600 shrink-0">
-                    <i class="fa-solid fa-chart-line"></i>
-                </div>
-                <div class="text-slate-700 text-sm sm:text-base lg:text-lg leading-relaxed">
-                    <span class="font-semibold text-slate-900">Không cam kết điểm số</span><br>
-                    Nhưng đảm bảo tiến bộ nếu học đúng lộ trình.
-                </div>
-            </li>
-
-            <li class="flex items-start gap-4 sm:gap-5">
-                <div class="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-xl bg-rose-500/10 text-rose-600 shrink-0">
-                    <i class="fa-solid fa-user-group"></i>
-                </div>
-                <div class="text-slate-700 text-sm sm:text-base lg:text-lg leading-relaxed">
-                    <span class="font-semibold text-slate-900">Môi trường học tích cực</span><br>
-                    Lớp nhỏ, tương tác cao, tập trung hiệu quả.
-                </div>
-            </li>
-
-        </ul>
-
-    </div>
-</div>
-
-
-<!-- RIGHT -->
-        <div class="p-6 sm:p-8 lg:p-12 lg:w-1/2 flex flex-col justify-center bg-white relative shadow-[0_0_80px_rgba(0,0,0,0.05)]">
-
-            <div class="mb-10 text-center lg:text-left">
-                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Học phí toàn khóa</p>
-                <p class="text-slate-400 text-lg line-through font-medium">8.000.000 VNĐ</p>
-
-                <div class="flex items-baseline justify-center lg:justify-start gap-2 mt-1">
-                    <h4 class="text-4xl sm:text-5xl lg:text-7xl font-black text-slate-900 tracking-tighter break-words">
-    6.000.000
-</h4>
-                    <span class="text-slate-500 font-bold">VNĐ</span>
-                </div>
-<p class="text-xs text-rose-500 font-semibold mt-2">
-⚠️ Các lớp đang dần kín chỗ — ưu tiên học viên đăng ký sớm
-</p>
-
-<div class="mt-6 p-4 bg-slate-50 rounded-xl border border-slate-200 text-sm text-slate-600 space-y-2">
-    <p>✔ 60 giờ học (30 buổi – ~3.5 tháng)</p>
-    <p>✔ 20+ bài Writing feedback chi tiết</p>
-    <p>✔ 15+ bài Speaking kèm audio sửa lỗi</p>
-    <p>✔ 260+ bài mẫu Writing (Task 1 & 2 – Band 8+)</p>
-    <p>✔ 20+ videos chiến thuật Listening & Reading (cover toàn bộ dạng bài)</p>
-</div>
-
-                <div class="mt-4 inline-flex items-center gap-2 bg-amber-50 text-amber-700 px-4 py-2 rounded-lg text-xs font-bold border border-amber-200">
-                    <i class="fa-solid fa-bolt"></i> Giảm thêm 300.000 VNĐ khi thanh toán toàn bộ học phí
-                </div>
-            </div>
-
-            <p class="text-sm text-slate-600 mb-6 text-center lg:text-left">
-                Inbox Page để nhận link Entry Test đánh giá năng lực chính xác. 
-                <br>(Nhớ chụp màn hình kết quả sau khi làm xong).
-            </p>
-
-            <a href="https://m.me/ieltswithkane" target="_blank"
-onclick="trackInboxClick()"
-class="block w-full bg-rose-600 text-white text-center py-5 rounded-2xl font-black text-xl hover:scale-[1.02] active:scale-[0.98] transition shadow-lg shadow-rose-600/30 hover:bg-rose-700">
-INBOX PAGE LÀM TEST NGAY
-</a>
-
-<p class="text-center mt-3 text-[11px] text-slate-500">
-💳 Hỗ trợ thanh toán linh hoạt (chia 3 lần)
-</p>
-
-            <p class="text-center mt-4 text-[10px] text-slate-400 italic">
-                Học phí cần hoàn thành trước ngày khai giảng.
-            </p>
-
-        </div>
-
-    </div>
-</section>
+  
 
     <!-- FOOTER -->
     <footer class="py-16 text-center text-slate-500 bg-white border-t border-slate-200">
