@@ -99,14 +99,60 @@ src="https://www.facebook.com/tr?id=1363831299012116&ev=PageView&noscript=1"/>
                 <a href="#feedback" class="hover:text-rose-600 transition">Feedback</a>
 	
             </div>
-           <a href="https://m.me/ieltswithkane" target="_blank"
-onclick="trackInboxClick()"
-class="bg-slate-900 text-white px-6 py-2.5 rounded-full font-bold text-sm hover:bg-rose-600 transition-colors shadow-lg">
-Nhận tư vấn
-</a>
+           
+			<div class="flex items-center gap-3">
+
+    <!-- MOBILE MENU BUTTON -->
+    <button id="menuBtn"
+    class="lg:hidden w-10 h-10 flex items-center justify-center rounded-xl border border-slate-200">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <!-- CTA (CHỈ HIỆN DESKTOP) -->
+    <a href="https://m.me/ieltswithkane" target="_blank"
+    onclick="trackInboxClick()"
+    class="hidden lg:inline-block bg-slate-900 text-white px-6 py-2.5 rounded-full font-bold text-sm hover:bg-rose-600 transition-colors shadow-lg">
+        Nhận tư vấn
+    </a>
         </div>
     </nav>
 
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="fixed top-0 left-0 w-full h-full bg-white z-50 transform translate-x-full transition duration-300">
+
+    <div class="flex justify-between items-center px-6 py-4 border-b">
+        <span class="font-bold text-lg">Menu</span>
+        <button id="closeMenu" class="text-2xl">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+    <div class="flex flex-col p-6 gap-6 text-lg font-semibold text-slate-700">
+
+        <a href="#about" onclick="closeMobileMenu()">About me</a>
+        <a href="#demo" onclick="closeMobileMenu()">Học thử</a>
+        <a href="#feedback" onclick="closeMobileMenu()">Feedback</a>
+
+        <div class="border-t pt-4">
+            <p class="text-sm text-slate-400 mb-2">Khóa học</p>
+
+            <a href="checkpoint2.html" class="block mb-2" onclick="closeMobileMenu()">
+                Checkpoint 2 (5.0 → 6.0+)
+            </a>
+
+            <a href="captoc56.html" onclick="closeMobileMenu()">
+                Luyện thi cấp tốc (1–1)
+            </a>
+        </div>
+
+        <a href="https://m.me/ieltswithkane"
+           class="mt-6 bg-rose-600 text-white text-center py-4 rounded-xl font-bold">
+            Inbox tư vấn
+        </a>
+
+    </div>
+</div>
+	
     <!-- HERO SECTION -->
     <section class="hero-gradient pt-36 pb-24 px-6 text-white text-center md:text-left relative overflow-hidden">
         <div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-12 items-center relative z-10">
@@ -474,6 +520,25 @@ function trackInboxClick() {
         method: 'Messenger'
     });
 	  fbq('track', 'Lead');
+}
+</script>
+
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+const closeMenu = document.getElementById("closeMenu");
+
+menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.remove("translate-x-full");
+});
+
+closeMenu.addEventListener("click", () => {
+    mobileMenu.classList.add("translate-x-full");
+});
+
+function closeMobileMenu() {
+    mobileMenu.classList.add("translate-x-full");
 }
 </script>
 	
