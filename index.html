@@ -7,8 +7,8 @@
     <meta name="description" content="Khóa học IELTS Checkpoint 2 (5.0 - 6.0+) hướng dẫn bởi Lao Gia Khang (IELTS 8.5). Lộ trình bài bản, sửa bài chi tiết.">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">    
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; background-color: #f8fafc; }
@@ -18,30 +18,52 @@
         
         /* Tùy chỉnh thanh cuộn ngang cho feedback thumbnail */
        .scroll-container {
+    .scroll-container {
     display: flex;
     gap: 1rem;
+
     overflow-x: auto;
     overflow-y: hidden;
-    padding: 0 1.5rem 1.5rem;
+
+    padding: 0 1.5rem 1rem;
 
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-
-    scrollbar-width: none;
-
-    cursor: grab;
 }
 
-.scroll-container:active {
-    cursor: grabbing;
+/* DESKTOP SCROLLBAR */
+@media (min-width: 1024px) {
+
+    .scroll-container::-webkit-scrollbar {
+        height: 10px;
+    }
+
+    .scroll-container::-webkit-scrollbar-track {
+        background: rgba(255,255,255,0.08);
+        border-radius: 999px;
+    }
+
+    .scroll-container::-webkit-scrollbar-thumb {
+        background: #64748b;
+        border-radius: 999px;
+    }
+
+    .scroll-container::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+    }
 }
 
-.scroll-container::-webkit-scrollbar {
-    display: none;
-} }
-        .scroll-container::-webkit-scrollbar { height: 6px; }
-        .scroll-container::-webkit-scrollbar-track { background: transparent; }
-        .scroll-container::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 20px; }
+/* MOBILE = ẨN SCROLLBAR */
+@media (max-width: 1023px) {
+
+    .scroll-container {
+        scrollbar-width: none;
+    }
+
+    .scroll-container::-webkit-scrollbar {
+        display: none;
+    }
+}
         
         /* Thumbnail ảnh feedback gọn gàng */
        .feedback-thumb {
@@ -582,38 +604,6 @@ function closeMobileMenu() {
 }
 </script>
 
-.scroll-container {
-    display: flex;
-    gap: 1rem;
-
-    overflow-x: auto;
-    overflow-y: hidden;
-
-    padding: 0 1.5rem 1rem;
-
-    -webkit-overflow-scrolling: touch;
-
-    scrollbar-width: auto;
-    scrollbar-color: #64748b transparent;
-}
-
-.scroll-container::-webkit-scrollbar {
-    height: 10px;
-}
-
-.scroll-container::-webkit-scrollbar-track {
-    background: rgba(255,255,255,0.05);
-    border-radius: 999px;
-}
-
-.scroll-container::-webkit-scrollbar-thumb {
-    background: #475569;
-    border-radius: 999px;
-}
-
-.scroll-container::-webkit-scrollbar-thumb:hover {
-    background: #64748b;
-}
 
 
 	
