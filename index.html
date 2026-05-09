@@ -582,50 +582,40 @@ function closeMobileMenu() {
 }
 </script>
 
-	.scroll-container {
+.scroll-container {
     display: flex;
     gap: 1rem;
 
     overflow-x: auto;
     overflow-y: hidden;
 
-    padding: 0 1.5rem 1.5rem;
+    padding: 0 1.5rem 1rem;
 
-    scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
 
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255,255,255,0.2) transparent;
+    scrollbar-width: auto;
+    scrollbar-color: #64748b transparent;
 }
 
 .scroll-container::-webkit-scrollbar {
-    height: 6px;
+    height: 10px;
 }
 
 .scroll-container::-webkit-scrollbar-track {
-    background: transparent;
+    background: rgba(255,255,255,0.05);
+    border-radius: 999px;
 }
 
 .scroll-container::-webkit-scrollbar-thumb {
-    background: rgba(255,255,255,0.2);
+    background: #475569;
     border-radius: 999px;
 }
 
 .scroll-container::-webkit-scrollbar-thumb:hover {
-    background: rgba(255,255,255,0.35);
+    background: #64748b;
 }
 
-<script>
-const container = document.querySelector('.scroll-container');
 
-container.addEventListener('wheel', (e) => {
-    if (e.deltaY === 0) return;
-
-    e.preventDefault();
-
-    container.scrollLeft += e.deltaY;
-});
-</script>
 	
 </body>
 </html>
