@@ -581,37 +581,49 @@ function closeMobileMenu() {
     mobileMenu.classList.add("translate-x-full");
 }
 </script>
+
+	.scroll-container {
+    display: flex;
+    gap: 1rem;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding: 0 1.5rem 1.5rem;
+
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.2) transparent;
+}
+
+.scroll-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.2);
+    border-radius: 999px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.35);
+}
+
 <script>
-const slider = document.querySelector('.scroll-container');
+const container = document.querySelector('.scroll-container');
 
-let isDown = false;
-let startX;
-let scrollLeft;
-
-slider.addEventListener('mousedown', (e) => {
-    isDown = true;
-    slider.classList.add('active');
-    startX = e.pageX - slider.offsetLeft;
-    scrollLeft = slider.scrollLeft;
-});
-
-slider.addEventListener('mouseleave', () => {
-    isDown = false;
-});
-
-slider.addEventListener('mouseup', () => {
-    isDown = false;
-});
-
-slider.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
+container.addEventListener('wheel', (e) => {
+    if (e.deltaY === 0) return;
 
     e.preventDefault();
 
-    const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 1.5;
-
-    slider.scrollLeft = scrollLeft - walk;
+    container.scrollLeft += e.deltaY;
 });
 </script>
 	
