@@ -17,13 +17,53 @@
 }
         
         /* Tùy chỉnh thanh cuộn ngang cho feedback thumbnail */
-        .scroll-container { display: flex; overflow-x: auto; gap: 1rem; padding-bottom: 1.5rem; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent; }
+       .scroll-container {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 1.5rem 1.5rem;
+
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+
+    cursor: grab;
+}
+
+.scroll-container:active {
+    cursor: grabbing;
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none;
+} }
         .scroll-container::-webkit-scrollbar { height: 6px; }
         .scroll-container::-webkit-scrollbar-track { background: transparent; }
         .scroll-container::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 20px; }
         
         /* Thumbnail ảnh feedback gọn gàng */
-        .feedback-thumb { height: 220px; width: auto; object-fit: cover; border-radius: 0.75rem; border: 1px solid #e2e8f0; cursor: pointer; transition: all 0.3s ease; flex-shrink: 0; scroll-snap-align: start; }
+       .feedback-thumb {
+    height: 220px;
+    width: auto;
+    object-fit: cover;
+
+    border-radius: 1rem;
+    border: 1px solid rgba(255,255,255,0.08);
+
+    flex-shrink: 0;
+
+    cursor: pointer;
+
+    transition:
+        transform .25s ease,
+        opacity .25s ease,
+        border-color .25s ease;
+
+    will-change: transform;
+    transform: translateZ(0);
+}
         .feedback-thumb:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border-color: #f43f5e; opacity: 0.9; }
         
         /* Modal Pop-up Image */
@@ -407,35 +447,35 @@ Quan trọng là bạn hiểu đúng bản chất và viết đúng cách.
 
         <!-- Thumbnail Scroll Container (29 ảnh) -->
         <div class="scroll-container px-6 max-w-full">
-            <img src="https://i.ibb.co/6RVT9RjJ/Screenshot-2026-04-05-180716.png" class="feedback-thumb" alt="Feedback 1" onclick="openModal(this.src)">
-            <img src="https://i.ibb.co/sXwswk8/Screenshot-2026-04-05-180635.png" class="feedback-thumb" alt="Feedback 2" onclick="openModal(this.src)">
-            <img src="https://i.ibb.co/N22qmw7B/Screenshot-2026-04-05-224922.png" class="feedback-thumb" alt="Feedback 3" onclick="openModal(this.src)">
-            <img src="https://i.ibb.co/d4sV3t1y/Screenshot-2026-04-05-224947.png" class="feedback-thumb" alt="Feedback 4" onclick="openModal(this.src)">
-            <img src="https://i.ibb.co/7xTnhVRL/Screenshot-2026-04-05-225040.png" class="feedback-thumb" alt="Feedback 5" onclick="openModal(this.src)">
-            <img src="https://i.ibb.co/zHZ2HZTN/Screenshot-2026-04-06-180225.png" class="feedback-thumb" alt="Feedback 6" onclick="openModal(this.src)">
-            <img src="https://i.ibb.co/MykqqsDx/Screenshot-2026-04-07-072206.png" class="feedback-thumb" alt="Feedback 7" onclick="openModal(this.src)">
-            <img src="https://i.ibb.co/NnSw0GFx/Screenshot-2026-04-22-194142.png" class="feedback-thumb" alt="Feedback 8" onclick="openModal(this.src)">
-            <img src="https://i.ibb.co/XZttK5Mh/Screenshot-2026-04-22-194209.png" class="feedback-thumb" alt="Feedback 9" onclick="openModal(this.src)">
-            <img src="https://i.ibb.co/7dLrwRMr/Screenshot-2026-04-22-194233.png" class="feedback-thumb" alt="Feedback 10" onclick="openModal(this.src)">
-           <img src="https://i.ibb.co/rR0NhnbH/Screenshot-2026-04-22-194330.png" class="feedback-thumb" alt="Feedback 11" onclick="openModal(this.src)">
-<img src="https://i.ibb.co/rGfCJKyb/Screenshot-2026-04-22-194351.png" class="feedback-thumb" alt="Feedback 12" onclick="openModal(this.src)">
-<img src="https://i.ibb.co/x8tvw0F5/Screenshot-2026-04-22-194409.png" class="feedback-thumb" alt="Feedback 13" onclick="openModal(this.src)">
-<img src="https://i.ibb.co/TD6r1mKG/Screenshot-2026-04-22-214523.png" class="feedback-thumb" alt="Feedback 14" onclick="openModal(this.src)">
-<img src="https://i.ibb.co/q3bq3Rdb/Screenshot-2026-04-22-214624.png" class="feedback-thumb" alt="Feedback 15" onclick="openModal(this.src)">
-<img src="https://i.ibb.co/kVfYbfRS/Screenshot-2026-04-22-214720.png" class="feedback-thumb" alt="Feedback 16" onclick="openModal(this.src)">
-<img src="https://i.ibb.co/DHQ1FC51/Screenshot-2026-04-22-214752.png" class="feedback-thumb" alt="Feedback 17" onclick="openModal(this.src)">
-<img src="https://i.ibb.co/DsK4pXs/Screenshot-2026-04-22-214811.png" class="feedback-thumb" alt="Feedback 18" onclick="openModal(this.src)">
-<img src="https://i.ibb.co/7dDZj1Cp/Screenshot-2026-04-22-214828.png" class="feedback-thumb" alt="Feedback 19" onclick="openModal(this.src)">
-<img src="https://i.ibb.co/fzG4dNPM/Screenshot-2026-04-22-214845.png" class="feedback-thumb" alt="Feedback 20" onclick="openModal(this.src)">
-<img src="https://i.ibb.co/DDYzDMDQ/Screenshot-2026-04-22-221625.png" class="feedback-thumb" alt="Feedback 21" onclick="openModal(this.src)">
-<img src="https://i.ibb.co/PGdCZkys/Screenshot-2026-04-23-061657.png" class="feedback-thumb" alt="Feedback 22" onclick="openModal(this.src)">
-<img src="https://i.ibb.co/qLDcJjgc/Screenshot-2026-04-23-073020.png" class="feedback-thumb" alt="Feedback 23" onclick="openModal(this.src)">
-<img src="https://i.ibb.co/fdQNx7Fk/Screenshot-2026-04-23-181106.png" class="feedback-thumb" alt="Feedback 24" onclick="openModal(this.src)">
-<img src="https://i.ibb.co/zWZLnnHq/Screenshot-2026-04-23-181120.png" class="feedback-thumb" alt="Feedback 25" onclick="openModal(this.src)">
-<img src="https://i.ibb.co/pv0VxkZc/Screenshot-2026-04-23-181129.png" class="feedback-thumb" alt="Feedback 26" onclick="openModal(this.src)">
-<img src="https://i.ibb.co/bgHkwgjD/Screenshot-2026-04-02-222256.png" class="feedback-thumb" alt="Feedback 27" onclick="openModal(this.src)">
-<img src="https://i.ibb.co/Hfnrqtk9/z7659572757046-53bc8550e30ee0da455cdeb98954108c.jpg" class="feedback-thumb" alt="Feedback 28" onclick="openModal(this.src)">
-<img src="https://i.ibb.co/8DCz0qkn/Screenshot-2026-04-05-180552.png" class="feedback-thumb" alt="Feedback 29" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/6RVT9RjJ/Screenshot-2026-04-05-180716.png" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 1" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/sXwswk8/Screenshot-2026-04-05-180635.png" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 2" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/N22qmw7B/Screenshot-2026-04-05-224922.png" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 3" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/d4sV3t1y/Screenshot-2026-04-05-224947.png" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 4" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/7xTnhVRL/Screenshot-2026-04-05-225040.png" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 5" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/zHZ2HZTN/Screenshot-2026-04-06-180225.png" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 6" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/MykqqsDx/Screenshot-2026-04-07-072206.png" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 7" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/NnSw0GFx/Screenshot-2026-04-22-194142.png" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 8" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/XZttK5Mh/Screenshot-2026-04-22-194209.png" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 9" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/7dLrwRMr/Screenshot-2026-04-22-194233.png" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 10" onclick="openModal(this.src)">
+           <img src="https://i.ibb.co/rR0NhnbH/Screenshot-2026-04-22-194330.png" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 11" onclick="openModal(this.src)">
+<img src="https://i.ibb.co/rGfCJKyb/Screenshot-2026-04-22-194351.png" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 12" onclick="openModal(this.src)">
+<img src="https://i.ibb.co/x8tvw0F5/Screenshot-2026-04-22-194409.png" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 13" onclick="openModal(this.src)">
+<img src="https://i.ibb.co/TD6r1mKG/Screenshot-2026-04-22-214523.png" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 14" onclick="openModal(this.src)">
+<img src="https://i.ibb.co/q3bq3Rdb/Screenshot-2026-04-22-214624.png" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 15" onclick="openModal(this.src)">
+<img src="https://i.ibb.co/kVfYbfRS/Screenshot-2026-04-22-214720.png" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 16" onclick="openModal(this.src)">
+<img src="https://i.ibb.co/DHQ1FC51/Screenshot-2026-04-22-214752.png" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 17" onclick="openModal(this.src)">
+<img src="https://i.ibb.co/DsK4pXs/Screenshot-2026-04-22-214811.png" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 18" onclick="openModal(this.src)">
+<img src="https://i.ibb.co/7dDZj1Cp/Screenshot-2026-04-22-214828.png" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 19" onclick="openModal(this.src)">
+<img src="https://i.ibb.co/fzG4dNPM/Screenshot-2026-04-22-214845.png" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 20" onclick="openModal(this.src)">
+<img src="https://i.ibb.co/DDYzDMDQ/Screenshot-2026-04-22-221625.png" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 21" onclick="openModal(this.src)">
+<img src="https://i.ibb.co/PGdCZkys/Screenshot-2026-04-23-061657.png" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 22" onclick="openModal(this.src)">
+<img src="https://i.ibb.co/qLDcJjgc/Screenshot-2026-04-23-073020.png" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 23" onclick="openModal(this.src)">
+<img src="https://i.ibb.co/fdQNx7Fk/Screenshot-2026-04-23-181106.png" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 24" onclick="openModal(this.src)">
+<img src="https://i.ibb.co/zWZLnnHq/Screenshot-2026-04-23-181120.png" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 25" onclick="openModal(this.src)">
+<img src="https://i.ibb.co/pv0VxkZc/Screenshot-2026-04-23-181129.png" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 26" onclick="openModal(this.src)">
+<img src="https://i.ibb.co/bgHkwgjD/Screenshot-2026-04-02-222256.png" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 27" onclick="openModal(this.src)">
+<img src="https://i.ibb.co/Hfnrqtk9/z7659572757046-53bc8550e30ee0da455cdeb98954108c.jpg" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 28" onclick="openModal(this.src)">
+<img src="https://i.ibb.co/8DCz0qkn/Screenshot-2026-04-05-180552.png" class="feedback-thumb hover:scale-[1.02]" alt="Feedback 29" onclick="openModal(this.src)">
         </div>
         
         <div class="text-center mt-4 flex items-center justify-center gap-3 text-slate-400">
@@ -540,6 +580,39 @@ closeMenu.addEventListener("click", () => {
 function closeMobileMenu() {
     mobileMenu.classList.add("translate-x-full");
 }
+</script>
+<script>
+const slider = document.querySelector('.scroll-container');
+
+let isDown = false;
+let startX;
+let scrollLeft;
+
+slider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    slider.classList.add('active');
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+});
+
+slider.addEventListener('mouseleave', () => {
+    isDown = false;
+});
+
+slider.addEventListener('mouseup', () => {
+    isDown = false;
+});
+
+slider.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+
+    e.preventDefault();
+
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 1.5;
+
+    slider.scrollLeft = scrollLeft - walk;
+});
 </script>
 	
 </body>
