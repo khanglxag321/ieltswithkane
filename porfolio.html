@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Lao Gia Khang | English Teacher Portfolio</title>
+    <meta name="description" content="Professional portfolio of Lao Gia Khang, an English teacher passionate about helping students boost Speaking and Writing.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">    
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; background-color: #f8fafc; }
+        .bg-cinematic {
+            background: radial-gradient(circle at top right, #1e293b, #020617 70%);
+        }
+        
+        /* Timeline Styles */
+        .timeline-container { position: relative; padding-left: 2rem; }
+        .timeline-container::before {
+            content: ''; position: absolute; left: 0.5rem; top: 0; bottom: 0; width: 2px; background: #e2e8f0;
+        }
+        .timeline-item { position: relative; margin-bottom: 2.5rem; }
+        .timeline-dot {
+            position: absolute; left: -1.85rem; top: 0.25rem; width: 1rem; height: 1rem;
+            background: #2563eb; border: 3px solid #eff6ff; border-radius: 50%; box-shadow: 0 0 0 4px #fff;
+        }
+
+        /* Scroll container for feedback */
+        .scroll-container {
+            display: flex; gap: 1rem; overflow-x: auto; overflow-y: hidden; padding: 0 1.5rem 1rem;
+            scroll-behavior: smooth; -webkit-overflow-scrolling: touch;
+        }
+        @media (min-width: 1024px) {
+            .scroll-container::-webkit-scrollbar { height: 8px; }
+            .scroll-container::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 999px; }
+            .scroll-container::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 999px; }
+            .scroll-container::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        }
+        @media (max-width: 1023px) {
+            .scroll-container { scrollbar-width: none; }
+            .scroll-container::-webkit-scrollbar { display: none; }
+        }
+        
+        .feedback-thumb {
+            height: 240px; width: auto; object-fit: cover; border-radius: 0.75rem;
+            border: 1px solid #e2e8f0; flex-shrink: 0; cursor: pointer;
+            transition: all .3s ease; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+        .feedback-thumb:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border-color: #2563eb; }
+        
+        .modal-active { overflow: hidden; } 
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 w-full z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 px-6 py-4 transition-all">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="#" class="font-extrabold text-xl tracking-tight text-slate-900">
+                LaoGia<span class="text-blue-600">Khang.</span>
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-bold uppercase tracking-wider text-slate-500">
+                <a href="#about" class="hover:text-blue-600 transition">About</a>
+                <a href="#experience" class="hover:text-blue-600 transition">Experience</a>
+                <a href="#portfolio" class="hover:text-blue-600 transition">Teaching Portfolio</a>
+                <a href="#outcomes" class="hover:text-blue-600 transition">Student Outcomes</a>
+            </div>
+            <a href="mailto:khanglxagwwe@gmail.com" class="hidden md:inline-block bg-slate-900 text-white px-5 py-2.5 rounded-lg font-bold text-sm hover:bg-blue-600 transition-colors shadow-md">
+                Contact Me
+            </a>
+            <button id="menuBtn" class="md:hidden text-2xl text-slate-800">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu" class="fixed inset-0 bg-white z-50 transform translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="flex justify-between items-center px-6 py-5 border-b">
+            <span class="font-extrabold text-xl">Portfolio.</span>
+            <button id="closeMenu" class="text-2xl text-slate-800"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="flex flex-col p-6 gap-6 text-lg font-semibold text-slate-600">
+            <a href="#about" onclick="closeMobileMenu()">About</a>
+            <a href="#experience" onclick="closeMobileMenu()">Experience & Education</a>
+            <a href="#portfolio" onclick="closeMobileMenu()">Teaching Portfolio</a>
+            <a href="#outcomes" onclick="closeMobileMenu()">Student Outcomes</a>
+            <a href="mailto:khanglxagwwe@gmail.com" class="mt-4 bg-blue-600 text-white text-center py-3 rounded-lg font-bold">Get In Touch</a>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <header class="bg-cinematic pt-32 pb-20 px-6 text-white relative overflow-hidden">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 relative z-10">
+            <!-- Profile Info -->
+            <div class="md:w-2/3 text-center md:text-left">
+                <p class="text-blue-400 font-bold tracking-widest uppercase text-sm mb-3">Professional Portfolio</p>
+                <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight">
+                    Lao Gia Khang <br>
+                    <span class="text-slate-300 font-light text-3xl md:text-5xl">IELTS & English Teacher</span>
+                </h1>
+                <p class="text-slate-400 text-lg md:text-xl leading-relaxed mb-8 max-w-2xl mx-auto md:mx-0">
+                    English teacher passionate about helping students boost Speaking and Writing quickly and effectively. I focus on practical structures and targeted strategies that lead to real results, not unnecessary theory.
+                </p>
+                
+                <div class="flex flex-wrap gap-4 justify-center md:justify-start text-sm font-medium text-slate-300 mb-8">
+                    <span class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm"><i class="fa-solid fa-envelope"></i> khanglxagwwe@gmail.com</span>
+                    <span class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm"><i class="fa-solid fa-phone"></i> 0846 909 330</span>
+                    <span class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm"><i class="fa-brands fa-linkedin"></i> Long Xuyen, An Giang</span>
+                </div>
+
+                <div class="flex gap-4 justify-center md:justify-start">
+                    <a href="#portfolio" class="bg-blue-600 text-white px-7 py-3.5 rounded-lg font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/30">
+                        View Portfolio
+                    </a>
+                    <a href="#experience" class="bg-white/10 text-white border border-white/20 px-7 py-3.5 rounded-lg font-bold hover:bg-white/20 transition">
+                        Career Timeline
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Highlight Stats/Image -->
+            <div class="md:w-1/3 flex justify-center">
+                <div class="bg-white/5 border border-white/10 p-6 rounded-3xl backdrop-blur-md w-full max-w-sm">
+                    <img src="https://i.ibb.co/WN5m6h5W/image.jpg" alt="Lao Gia Khang" class="w-32 h-32 rounded-full mx-auto mb-6 object-cover border-4 border-blue-500 shadow-xl">
+                    <div class="bg-slate-900/60 p-5 rounded-2xl border border-white/5 text-center">
+                        <p class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-1">Highest Achievement</p>
+                        <p class="text-4xl font-black text-white mb-2">8.5 <span class="text-base font-normal text-slate-400">IELTS Overall</span></p>
+                        <div class="flex justify-center gap-3 text-sm font-bold text-blue-300">
+                            <span>Speaking: 8.0</span>
+                            <span class="opacity-50">|</span>
+                            <span>Writing: 8.0</span>
+                        </div>
+                    </div>
+<div class="mt-4 border-t border-white/10 pt-4">
+                       
+                        <img src="https://i.ibb.co/GzQPh5h/Cam-Scanner-03-30-2026-18-24.jpg" alt="Chứng chỉ IELTS" class="w-full max-w-[200px] mx-auto rounded-lg border border-slate-600 cursor-pointer hover:border-rose-400 transition" onclick="openModal(this.src)">
+                
+</div>
+            </div>
+        </div>
+
+
+        <!-- Decorative background elements -->
+        <div class="absolute top-1/4 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+    </header>
+
+    <!-- ABOUT ME (Giữ nguyên cấu trúc nội dung từ bản gốc) -->
+    <section id="about" class="py-20 px-6 bg-white border-b border-slate-100 scroll-mt-16">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center gap-4 mb-10">
+                <div class="w-12 h-1 bg-blue-600"></div>
+                <h2 class="text-3xl font-black uppercase tracking-tight text-slate-900">My Story</h2>
+            </div>
+
+            <div id="about-short" class="space-y-5 text-slate-600 leading-relaxed text-lg bg-slate-50 p-8 rounded-2xl border border-slate-100">
+                <p>Hồi cấp 3, mình học chuyên Toán ở trường <b>Chuyên Thoại Ngọc Hầu</b> (Long Xuyên) và gần như không tự tin về phát âm, cũng không có nền tảng gì quá nổi bật.</p>
+                <p>Thay vì học theo kiểu truyền thống chán ngắt, mình chọn cách học “tự nhiên” hơn: nghe YouTube, xem phim, podcast mỗi ngày... và lặp đi lặp lại những gì mình nghe - đọc. Sau này mình gọi đó là <b>Repetitive Listening</b> và <b>Repetitive Reading</b>.</p>
+                <div class="pt-4">
+                    <button onclick="toggleAbout()" class="text-blue-600 font-bold hover:text-blue-800 flex items-center gap-2 transition-colors">
+                        Đọc toàn bộ câu chuyện <i class="fa-solid fa-arrow-right-long"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="about-full" class="hidden space-y-6 text-slate-600 leading-relaxed text-lg bg-slate-50 p-8 rounded-2xl border border-slate-100">
+                <p>Hồi cấp 3, mình học chuyên Toán ở trường <b>Chuyên Thoại Ngọc Hầu</b> (Long Xuyên). Lúc đó, mình thấy khá là ngợp khi nhận thấy nhiều bạn trong lớp không chỉ học giỏi Toán mà còn nói tiếng Anh rất tốt. Trong khi đó, mình thì không tự tin về phát âm, cũng không có nền tảng gì quá nổi bật.</p>
+                <img src="https://i.ibb.co/DD4NHV12/475522593-4277237159173863-2178702540582235155-n.jpg" class="w-full max-w-2xl mx-auto rounded-xl shadow-sm">
+                <p>Thế là mình bắt đầu tự học. Nhưng mình nhanh chóng nhận ra là mình không hợp với kiểu học truyền thống — ngồi bàn học, làm bài tập, học thuộc lòng. Mình chán rất nhanh. Nên mình chuyển hướng: học theo cách “tự nhiên” hơn. Mình bắt đầu nghe tiếng Anh mỗi ngày (YouTube, phim, podcast), đọc báo tiếng Anh (đặc biệt là các bài mang tính học thuật), và lặp đi lặp lại những gì mình nghe – đọc. Sau này mình gọi 2 phương pháp này là <b>Repetitive Listening</b> và <b>Repetitive Reading</b> — cũng là những gì mình đang dạy lại cho các bạn học viên.</p>
+                <p>Thật ra lúc đó mình gần như chỉ tập trung vào Listening và Reading, còn Writing và Speaking thì khá lười luyện. Nhưng nhờ việc tiếp xúc đều đặn với tiếng Anh thật đã làm nền tảng giúp mình đạt được <b>8.5</b> cho Listening & Reading sau này.</p>
+                <p>Vào năm 2021, khi chọn nguyện vọng đại học, dù thích tiếng Anh, mình lại không đủ tự tin để theo ngành Ngôn ngữ Anh. Mình chọn học <b>Kinh tế đối ngoại</b>, với suy nghĩ là “Kinh tế chắc dễ kiếm việc làm, với lại còn được dùng tiếng Anh nữa”. Mình thi kết quả cũng khá tốt, <b>28đ</b>, tưởng chừng như đã chắc suất vào Ngoại Thương.</p>
+        		<p>Nhưng mình trượt nguyện vọng 1 ở FTU… thiếu đúng 0.05 điểm.</p>
+        		<p>Mình học năm nhất ở <b>UEH</b>, khoảng thời gian đầu vẫn còn học online do dịch bệnh. Có một lần mình thuyết trình và được giảng viên và các bạn trên lớp khen là phát âm hay. Lúc này thực sự mình bị bất ngờ và sung sướng vì đó giờ hiếm ai khen phát âm tiếng Anh của mình là hay cả. </p>
+        		<p>Sang đầu năm 2022, mình bắt đầu học offline tại trường nhưng càng học càng thấy không hợp. Mình dần dần thu mình lại và mất phương hướng. Đến năm 2, mình quyết định <b>gap year</b> — rồi sau đó là một quyết định lớn hơn: nghỉ hẳn để theo lại hướng mình thực sự muốn.</p>
+        		<p>Năm 2023, mình thi vào ngành <b>Ngôn ngữ Anh ở AGU</b> tại quê nhà của mình. Trong thời gian đó, mình gần như dành toàn bộ thời gian để tự học lại một cách nghiêm túc hơn.</p>
+        		<p>Tháng 4/2024, mình thi IELTS lần đầu và đạt <b>8.0 overall</b></p>
+                <img src="https://i.ibb.co/jk9L3bMq/Screenshot-2026-04-18-162445.png" class="w-full max-w-2xl mx-auto rounded-xl shadow-sm border border-slate-200">
+        		<p>Sau đó, mình bắt đầu đi dạy: từ dạy 1-1 online, dạy Business English, đến dạy IELTS. Mình cũng từng làm việc với các trung tâm và nền tảng tiếng Anh trước đó, nên có cơ hội tiếp xúc với nhiều kiểu người học khác nhau.</p>
+                <div class="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
+                    <img src="https://i.ibb.co/d48ynP7r/Screenshot-2026-04-18-163005.png" class="rounded-xl border border-slate-200">
+                    <img src="https://i.ibb.co/5XxJmFv3/Screenshot-2026-04-18-163200.png" class="rounded-xl border border-slate-200">
+                    <img src="https://i.ibb.co/N2kLNzPr/Screenshot-2026-04-18-163304.png" class="rounded-xl border border-slate-200">
+                    <img src="https://i.ibb.co/PsZVxJzR/667787841-1598258025636748-8478363587540061368-n.jpg" class="rounded-xl border border-slate-200">
+                </div>
+        		<p>Càng dạy, mình càng nhận ra là: mình thực sự có thể giúp người khác học tốt hơn.</p>
+        		<p>Đầu năm 2026, mình đạt <b>8.5 IELTS</b> (Speaking 8.0 | Writing 8.0).</p>
+                <img src="https://i.ibb.co/Sw7m5qgL/Screenshot-2026-04-18-162510.png" class="w-full max-w-2xl mx-auto rounded-xl shadow-sm border border-slate-200">
+        		<p>Điều mình bất ngờ nhất là Writing — vì mình từng nghĩ đây là kỹ năng “khó nhằn”. Nhưng sau khi tự mày mò và thử nhiều cách, mình nhận ra: <b>Writing không khó như nhiều người nghĩ.</b> Quan trọng là bạn hiểu đúng bản chất và viết đúng cách.</p>
+                <p>Và đó cũng là cách mình dạy.</p>
+                <p><b>Không học theo kiểu máy móc.</b></p>
+                <p><b>Không học lan man.</b></p>
+                <p><b>Mình tập trung vào những gì thực sự hiệu quả — những thứ mình đã tự kiểm chứng trong quá trình học và dạy.</b></p>
+                <p>Mình không phải là người giỏi nhất, nhưng mình hiểu rất rõ cảm giác của một người từng không tự tin với tiếng Anh — và cách để vượt qua nó.</p>
+                <div class="pt-6">
+                    <button onclick="toggleAbout()" class="text-slate-500 font-bold hover:text-slate-800 flex items-center gap-2 transition-colors">
+                        <i class="fa-solid fa-arrow-left-long"></i> Thu gọn
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE & EDUCATION (TIMELINE) -->
+    <section id="experience" class="py-20 px-6 bg-slate-50 border-b border-slate-200 scroll-mt-16">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-12 gap-16">
+            
+            <!-- Work Experience Timeline -->
+            <div class="lg:col-span-8">
+                <div class="flex items-center gap-4 mb-10">
+                    <div class="w-12 h-1 bg-blue-600"></div>
+                    <h2 class="text-3xl font-black uppercase tracking-tight text-slate-900">Work Experience</h2>
+                </div>
+                
+                <div class="timeline-container">
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 hover:border-blue-200 transition-colors">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                <div>
+                                    <h3 class="text-xl font-bold text-slate-900">IELTS Teacher</h3>
+                                    <p class="text-blue-600 font-bold mt-1">IELTS LANGO</p>
+                                </div>
+                                <span class="inline-block bg-slate-100 text-slate-600 text-sm font-bold px-3 py-1 rounded-md mt-3 md:mt-0">Sep 2024 - Apr 2026</span>
+                            </div>
+                            <ul class="list-disc list-outside ml-4 text-slate-600 space-y-2 text-[15px] leading-relaxed">
+                                <li>Taught IELTS across a wide range of levels, from foundation (1.0-3.0) to intermediate and upper levels (up to 6.0).</li>
+                                <li>Covered all four skills (Listening, Reading, Writing, Speaking), adapting lessons to suit different student needs.</li>
+                                <li>Designed lessons, assigned practice tasks, and gave detailed feedback and corrections, especially for Writing and Speaking.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 hover:border-blue-200 transition-colors">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                <div>
+                                    <h3 class="text-xl font-bold text-slate-900">English Teacher</h3>
+                                    <p class="text-blue-600 font-bold mt-1">HALLO ENGLISH</p>
+                                </div>
+                                <span class="inline-block bg-slate-100 text-slate-600 text-sm font-bold px-3 py-1 rounded-md mt-3 md:mt-0">Apr 2024 - Sep 2024</span>
+                            </div>
+                            <ul class="list-disc list-outside ml-4 text-slate-600 space-y-2 text-[15px] leading-relaxed">
+                                <li>Taught Business English (A1-B2) with a focus on practical communication, workplace vocabulary, and real-life situations.</li>
+                                <li>Delivered interactive lessons for young learners, keeping classes engaging and easy to follow.</li>
+                                <li>Provided IELTS preparation across all four skills, with clear strategies and personalised feedback.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot bg-slate-400 border-slate-100"></div>
+                        <div class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                                <div>
+                                    <h3 class="text-lg font-bold text-slate-800">Freelance Translator</h3>
+                                </div>
+                                <span class="text-slate-500 text-sm font-bold mt-1 md:mt-0">Mar 2023 - Sep 2023</span>
+                            </div>
+                            <p class="text-slate-600 text-[15px]">Translate movies and short videos for clients.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot bg-slate-400 border-slate-100"></div>
+                        <div class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                <div>
+                                    <h3 class="text-lg font-bold text-slate-800">Collaborator</h3>
+                                    <p class="text-slate-500 font-medium mt-1 text-sm">ENGBREAKING COMPANY</p>
+                                </div>
+                                <span class="text-slate-500 text-sm font-bold mt-2 md:mt-0">Jan 2022 - Oct 2022</span>
+                            </div>
+                            <ul class="list-disc list-outside ml-4 text-slate-600 space-y-1 text-[14px]">
+                                <li>Wrote contents to give students the motivation to learn English everyday.</li>
+                                <li>Made videos to help students improve English pronunciation.</li>
+                                <li>Reviewed and gave feedback on students' English speaking videos.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot bg-slate-400 border-slate-100"></div>
+                        <div class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                <div>
+                                    <h3 class="text-lg font-bold text-slate-800">Collaborator</h3>
+                                    <p class="text-slate-500 font-medium mt-1 text-sm">STEPUP ENGLISH COMPANY</p>
+                                </div>
+                                <span class="text-slate-500 text-sm font-bold mt-2 md:mt-0">Jan 2022 - Aug 2022</span>
+                            </div>
+                            <ul class="list-disc list-outside ml-4 text-slate-600 space-y-1 text-[14px]">
+                                <li>Found memes based on vocabulary lists for the "Hack não ngữ pháp" app.</li>
+                                <li>Prepared and provided grammar quizzes.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Education Side -->
+            <div class="lg:col-span-4">
+                <div class="flex items-center gap-4 mb-10">
+                    <div class="w-12 h-1 bg-blue-600"></div>
+                    <h2 class="text-3xl font-black uppercase tracking-tight text-slate-900">Education</h2>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="bg-blue-600 p-8 rounded-2xl shadow-lg text-white">
+                        <i class="fa-solid fa-graduation-cap text-3xl mb-4 opacity-80"></i>
+                        <h4 class="text-xl font-bold mb-1">English Linguistics and Literature</h4>
+                        <p class="text-blue-200 font-medium text-sm mb-4">AN GIANG UNIVERSITY</p>
+                        <div class="flex justify-between items-end">
+                            <span class="bg-white/20 px-3 py-1 rounded text-sm font-bold">2023 - 2027</span>
+                            <span class="font-black text-2xl">GPA: 3.81</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200">
+                        <i class="fa-solid fa-building-columns text-3xl mb-4 text-slate-300"></i>
+                        <h4 class="text-lg font-bold text-slate-800 mb-1">International Business</h4>
+                        <p class="text-slate-500 font-medium text-sm mb-4">UNIVERSITY OF ECONOMICS HO CHI MINH CITY (UEH)</p>
+                        <div class="flex justify-between items-end">
+                            <span class="bg-slate-100 text-slate-600 px-3 py-1 rounded text-sm font-bold">2021 - 2022</span>
+                            <span class="font-black text-xl text-slate-800">GPA: 3.36</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TEACHING PORTFOLIO: VIDEOS & METHODOLOGY -->
+    <section id="portfolio" class="py-20 px-6 bg-white border-b border-slate-100 scroll-mt-16">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-black uppercase tracking-tight text-slate-900 mb-4">Teaching Portfolio</h2>
+                <p class="text-slate-500 text-lg max-w-2xl mx-auto">Demonstrating practical pedagogy through live lesson recordings and detailed grading methodology.</p>
+            </div>
+
+            <!-- Videos Row -->
+            <div class="grid md:grid-cols-3 gap-6 mb-16">
+                <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="aspect-video bg-slate-900 rounded-xl overflow-hidden mb-4">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/J7P_hA-vgf4" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h4 class="font-bold text-center text-slate-800 py-2">Writing Task 2 Instruction</h4>
+                </div>
+
+                <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="aspect-video bg-slate-900 rounded-xl overflow-hidden mb-4">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Fksdp3Lupts" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h4 class="font-bold text-center text-slate-800 py-2">Speaking Part 2 Simulation</h4>
+                </div>
+
+                <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="aspect-video bg-slate-900 rounded-xl overflow-hidden mb-4">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/GxnF-D8qlWM" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h4 class="font-bold text-center text-slate-800 py-2">Writing Task 1 Instruction</h4>
+                </div>
+            </div>
+
+            <!-- Grading Methodology -->
+            <div class="bg-slate-900 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 rounded-full blur-[60px]"></div>
+                <h3 class="text-2xl font-bold mb-8 relative z-10">Assessment & Grading Methodology</h3>
+                
+                <div class="grid md:grid-cols-2 gap-8 relative z-10">
+                    <!-- Writing -->
+                    <div class="bg-white/10 p-6 rounded-2xl border border-white/10 backdrop-blur-sm">
+                        <h4 class="font-bold text-blue-400 mb-3 flex items-center gap-2"><i class="fa-solid fa-pen-nib"></i> Writing Evaluation</h4>
+                        <p class="text-sm text-slate-300 mb-6">Detailed feedback focusing on vocabulary, grammar precision, and strict coherence/cohesion structural flow.</p>
+                        <div class="space-y-3">
+                            <a href="https://docs.google.com/document/d/1CyY9FahnXRdKLLtHlIe37gilM0Wid_pUsMe3iEuSbYw/edit?usp=sharing" target="_blank" class="flex items-center gap-4 bg-white/5 p-3 rounded-xl hover:bg-blue-600/20 transition border border-white/5">
+                                <i class="fa-solid fa-file-word text-xl text-blue-300"></i>
+                                <div><p class="font-bold text-sm">Sample Grading: Task 2</p><p class="text-[10px] text-slate-400">Google Docs Reference</p></div>
+                            </a>
+                            <a href="https://docs.google.com/document/d/1kZC5Y3eHdDeNBGTxsmi_1eLzjsLUWz7jhMSZhzZy6FU/edit?usp=sharing" target="_blank" class="flex items-center gap-4 bg-white/5 p-3 rounded-xl hover:bg-blue-600/20 transition border border-white/5">
+                                <i class="fa-solid fa-file-word text-xl text-blue-300"></i>
+                                <div><p class="font-bold text-sm">Sample Grading: Task 1</p><p class="text-[10px] text-slate-400">Google Docs Reference</p></div>
+                            </a>
+                            <a href="https://www.youtube.com/embed/LgO5bp4Nn4A" target="_blank" class="flex items-center gap-4 bg-white/5 p-3 rounded-xl hover:bg-rose-600/20 transition border border-white/5">
+                                <i class="fa-brands fa-youtube text-xl text-rose-400"></i>
+                                <div><p class="font-bold text-sm">In-class Feedback Demo</p><p class="text-[10px] text-slate-400">YouTube Video</p></div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Speaking -->
+                    <div class="bg-white/10 p-6 rounded-2xl border border-white/10 backdrop-blur-sm">
+                        <h4 class="font-bold text-blue-400 mb-3 flex items-center gap-2"><i class="fa-solid fa-microphone"></i> Speaking Evaluation</h4>
+                        <p class="text-sm text-slate-300 mb-6">Criterion-based feedback delivered via direct 1-on-1 mock tests and audio files to correct pronunciation and intonation nuances.</p>
+                        <div class="space-y-3">
+                            <a href="https://www.youtube.com/embed/RV3POPCdXKc" target="_blank" class="flex items-center gap-4 bg-white/5 p-3 rounded-xl hover:bg-rose-600/20 transition border border-white/5">
+                                <i class="fa-brands fa-youtube text-xl text-rose-400"></i>
+                                <div><p class="font-bold text-sm">1-on-1 Mock Test Session</p><p class="text-[10px] text-slate-400">Real-time feedback recording</p></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STUDENT OUTCOMES (TESTIMONIALS) -->
+    <section id="outcomes" class="py-20 bg-slate-50 scroll-mt-16">
+        <div class="max-w-7xl mx-auto px-6 text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-black uppercase tracking-tight text-slate-900 mb-4">Student Outcomes</h2>
+            <p class="text-slate-500 text-lg max-w-2xl mx-auto mb-2">
+                Proven results through consistent student progression, score reports, and direct feedback.
+            </p>
+            <p class="text-blue-600 text-sm font-bold">
+                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Click to enlarge images
+            </p>
+        </div>
+
+        <div class="scroll-container px-6 max-w-full">
+            <img src="https://i.ibb.co/6RVT9RjJ/Screenshot-2026-04-05-180716.png" class="feedback-thumb" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/sXwswk8/Screenshot-2026-04-05-180635.png" class="feedback-thumb" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/N22qmw7B/Screenshot-2026-04-05-224922.png" class="feedback-thumb" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/d4sV3t1y/Screenshot-2026-04-05-224947.png" class="feedback-thumb" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/7xTnhVRL/Screenshot-2026-04-05-225040.png" class="feedback-thumb" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/zHZ2HZTN/Screenshot-2026-04-06-180225.png" class="feedback-thumb" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/MykqqsDx/Screenshot-2026-04-07-072206.png" class="feedback-thumb" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/NnSw0GFx/Screenshot-2026-04-22-194142.png" class="feedback-thumb" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/XZttK5Mh/Screenshot-2026-04-22-194209.png" class="feedback-thumb" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/7dLrwRMr/Screenshot-2026-04-22-194233.png" class="feedback-thumb" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/rR0NhnbH/Screenshot-2026-04-22-194330.png" class="feedback-thumb" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/rGfCJKyb/Screenshot-2026-04-22-194351.png" class="feedback-thumb" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/x8tvw0F5/Screenshot-2026-04-22-194409.png" class="feedback-thumb" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/TD6r1mKG/Screenshot-2026-04-22-214523.png" class="feedback-thumb" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/q3bq3Rdb/Screenshot-2026-04-22-214624.png" class="feedback-thumb" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/kVfYbfRS/Screenshot-2026-04-22-214720.png" class="feedback-thumb" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/DHQ1FC51/Screenshot-2026-04-22-214752.png" class="feedback-thumb" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/DsK4pXs/Screenshot-2026-04-22-214811.png" class="feedback-thumb" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/7dDZj1Cp/Screenshot-2026-04-22-214828.png" class="feedback-thumb" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/fzG4dNPM/Screenshot-2026-04-22-214845.png" class="feedback-thumb" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/DDYzDMDQ/Screenshot-2026-04-22-221625.png" class="feedback-thumb" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/PGdCZkys/Screenshot-2026-04-23-061657.png" class="feedback-thumb" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/qLDcJjgc/Screenshot-2026-04-23-073020.png" class="feedback-thumb" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/fdQNx7Fk/Screenshot-2026-04-23-181106.png" class="feedback-thumb" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/zWZLnnHq/Screenshot-2026-04-23-181120.png" class="feedback-thumb" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/pv0VxkZc/Screenshot-2026-04-23-181129.png" class="feedback-thumb" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/bgHkwgjD/Screenshot-2026-04-02-222256.png" class="feedback-thumb" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/Hfnrqtk9/z7659572757046-53bc8550e30ee0da455cdeb98954108c.jpg" class="feedback-thumb" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/8DCz0qkn/Screenshot-2026-04-05-180552.png" class="feedback-thumb" onclick="openModal(this.src)">
+        </div>
+        
+        <div class="text-center mt-6 flex items-center justify-center gap-3 text-slate-400">
+            <i class="fa-solid fa-arrow-left text-sm"></i>
+            <span class="text-xs font-bold uppercase tracking-wider">Swipe to view more</span>
+            <i class="fa-solid fa-arrow-right text-sm"></i>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 text-center text-slate-500 bg-white border-t border-slate-200">
+        <div class="font-black text-2xl tracking-tight text-slate-900 mb-6">LaoGia<span class="text-blue-600">Khang.</span></div>
+        <div class="flex justify-center gap-6 text-2xl mb-8">
+            <a href="https://www.facebook.com/laogiakhanglxag" target="_blank" class="hover:text-blue-600 transition p-2 bg-slate-50 rounded-full w-12 h-12 flex items-center justify-center border border-slate-200"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="mailto:khanglxagwwe@gmail.com" class="hover:text-blue-600 transition p-2 bg-slate-50 rounded-full w-12 h-12 flex items-center justify-center border border-slate-200"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+        <p class="text-xs">&copy; 2026 Lao Gia Khang. Professional Educator Portfolio.</p>
+    </footer>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="imageModal" class="fixed inset-0 z-[100] bg-slate-900/95 hidden flex justify-center items-center p-4 transition-opacity duration-300 opacity-0 backdrop-blur-sm" onclick="closeModal()">
+        <span class="absolute top-6 right-8 text-white text-5xl font-light cursor-pointer hover:text-blue-500 transition-colors" onclick="closeModal()">&times;</span>
+        <img id="modalImage" src="" class="max-w-full max-h-[90vh] object-contain rounded-xl shadow-2xl border border-white/10" onclick="event.stopPropagation()">
+    </div>
+
+    <script>
+        // Modal logic
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+
+        function openModal(src) {
+            modalImg.src = src;
+            modal.classList.remove('hidden');
+            setTimeout(() => { modal.classList.remove('opacity-0'); }, 10);
+            document.body.classList.add('modal-active');
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modalImg.src = '';
+            }, 300); 
+            document.body.classList.remove('modal-active');
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape" && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+
+        // About me toggle
+        function toggleAbout() {
+            const short = document.getElementById("about-short");
+            const full = document.getElementById("about-full");
+            const aboutSection = document.getElementById("about");
+            const isOpening = full.classList.contains('hidden');
+
+            short.classList.toggle("hidden");
+            full.classList.toggle("hidden");
+
+            if (!isOpening) {
+                aboutSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Mobile Menu
+        const menuBtn = document.getElementById("menuBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const closeMenu = document.getElementById("closeMenu");
+
+        menuBtn.addEventListener("click", () => {
+            mobileMenu.classList.remove("translate-x-full");
+        });
+
+        closeMenu.addEventListener("click", () => {
+            mobileMenu.classList.add("translate-x-full");
+        });
+
+        function closeMobileMenu() {
+            mobileMenu.classList.add("translate-x-full");
+        }
+    </script>
+</body>
+</html>
